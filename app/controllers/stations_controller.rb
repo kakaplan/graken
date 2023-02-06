@@ -4,4 +4,5 @@ class StationsController < ApplicationController
     @stations = Station.all.order(identifier: :asc)
   end
   
+  
 end

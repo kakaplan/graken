@@ -1,7 +1,6 @@
 # Branch Owner
 
 Kira's branch
-This is just an additonal test.
 
 # ValetBike
 

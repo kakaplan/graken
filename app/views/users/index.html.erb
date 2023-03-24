@@ -5,11 +5,10 @@
     </div>  
     <div class="flexbox vertical stretch">
         <% if @users.present? %>
-        We currently have the following stations available:
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+          Users are registered!
         <% else %>
         <div class="empty">
-            There are currently no stations or bikes found.
+            There are currently no users registered.
         </div>
         <% end %>
     </div>

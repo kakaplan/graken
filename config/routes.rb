@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     
   get '/users' => 'users#index'
   get '/register' => 'users#register' 
+  get '/bikes' => 'bikes#index'
   root to: 'stations#index'
 end
 

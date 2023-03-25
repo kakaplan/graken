@@ -1,0 +1,16 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch">
+    <div class="section-title">
+      Welcome to the Users View! 
+    </div>  
+    <div class="flexbox vertical stretch">
+        <% if @users.present? %>
+          Users are registered!
+        <% else %>
+        <div class="empty">
+            There are currently no users registered.
+        </div>
+        <% end %>
+    </div>
+	</div>
+</div>

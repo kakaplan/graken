@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_24_005142) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_26_211713) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -26,6 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_24_005142) do
     t.datetime "updated_at", null: false
     t.string "count"
     t.integer "status", default: 1, null: false
+    t.decimal "longitude", precision: 9, scale: 7
+    t.decimal "latitude", precision: 9, scale: 7
+    t.string "theme_name"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

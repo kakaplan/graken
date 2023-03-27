@@ -13,4 +13,22 @@
  *= require_tree .
  *= require_self
  */
- 
+
+ /*Styling for the navigation bar. TODO: We should definitely change this!*/
+.navbar {
+    background-color: rgb(13, 171, 124);
+    padding-top: 35px;
+    padding-left: 35px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}

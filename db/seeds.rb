@@ -22,3 +22,4 @@ Station.find_by(identifier: "23").update(longitude:-72.635669,latitude:42.316766
  Station.find_by(identifier: "22").update(longitude:-72.6502395 ,latitude:42.3276837, theme_name: "Octopus")
 Station.find_by(identifier: "21").update(longitude:-72.6741444 ,latitude:42.3355744, theme_name: "jellyfish")
  Station.find_by(identifier: "20").update(longitude:-72.6475013 ,latitude:42.3126462, theme_name: "seahorses")
+Card.all.update_all(card_number: 1234567812345678, exp_date: 01-01-2024, cv:123, name:"John Doe")

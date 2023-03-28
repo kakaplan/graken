@@ -16,6 +16,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_26_211713) do
     t.integer "current_station_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.float "battery"
+    t.float "mileage"
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

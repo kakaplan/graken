@@ -1,7 +1,5 @@
 class StationMapsController < ApplicationController
   def index
-  end
-
   def new
   end
 

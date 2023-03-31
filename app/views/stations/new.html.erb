@@ -1,0 +1,14 @@
+<div class="stations new">
+  <h2>Add a New Station</h2>
+
+  <%= form_for(@station) do |f| %>
+    <% # url: stations_path, method: 'post' %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Add Station") %>
+    </div>
+
+  <% end %>
+</div>

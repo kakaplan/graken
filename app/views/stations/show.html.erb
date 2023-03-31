@@ -38,4 +38,12 @@
     </tr>
   </table>
 
+  <h3>Bikes docked here</h3>
+  <table summary="Docked bikes">
+  <%for bike in @station.docked_bikes do%>
+    <tr>
+      <td><%=bike.identifier%> at station <%=bike.current_station_id%> <%= link_to("show", bike_path(bike)) %></td>
+    </tr>
+  <%end%>
+  </table>
 </div>

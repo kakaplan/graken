@@ -10,6 +10,11 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  resources :bikes do
+    member do
+    end
+  end
     
   get '/users' => 'users#index'
   get '/register' => 'users#register' 

@@ -16,11 +16,15 @@
 
  /*Styling for the navigation bar. TODO: We should definitely change this!*/
 .navbar {
-    background-color: rgb(13, 171, 124);
+    /* background-color: rgb(43, 98, 185); */
     padding-top: 35px;
     padding-left: 35px;
     padding-bottom: 10px;
     margin-bottom: 20px;
+
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-color: rgb(255, 255, 255);
 }
 nav ul {
     margin: 0;

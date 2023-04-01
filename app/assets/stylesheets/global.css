@@ -30,6 +30,7 @@ body {
   min-height: 100%;
   font-family: var(--body-font);
   font-weight: 400;
-  color: var(--black-color);
-  background: var(--green-color);
+  color: var(--white-color);
+  /* background: var(--blue-color); */
+  background-image: linear-gradient(to bottom right,  rgb(13, 38, 137), rgb(68, 186, 255));
 }

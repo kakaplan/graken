@@ -17,6 +17,7 @@
     <h1 class="font-bold text-4xl">StationMaps Index</h1>
     <p>this is the main page of station map, map will appear here</p>
     <p>find me in app/views/station_maps/index.html.erb</p>
+    <%= @stations %>
   </div>
 
   <!-- sets map id and map h,w,p -->
@@ -26,14 +27,17 @@
     <!-- sets map view: lat,long, zoom position -->
     var map = L.map('map').setView([42.31, -72.64], 10);
     
-    <!-- adds to map a style chosen from online source; maptiler: raster tiles, license  -->  
+    <!-- adds a style to  map chosen from online source; maptiler: raster tiles, license  -->  
     L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=4BB14XvJg8kIpx8YLSXf', {
       maxZoom: 19,
       attribution: '<a href="<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy OpenStreetMap contributors</a>' ,
     }).addTo(map);
     
-    <!-- adds to map a style chosen from online source; maptiler: raster tiles, license  -->    
-    var marker = L.marker([42.31, -72.64]).addTo(map);
+    <!-- adds marker to map  -->    
+    var marker = L.marker([42.31, -72.64]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    
+
   </script>  
    
 </body>

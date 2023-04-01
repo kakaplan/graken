@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
     
   get '/users' => 'users#index'
+  get '/users/account_info'
+
   get '/register' => 'users#register' 
   get '/bikes' => 'bikes#index'
   root to: 'station_maps#index'

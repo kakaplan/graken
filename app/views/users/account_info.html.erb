@@ -1,0 +1,23 @@
+<div class="page-section flexbox vertical stretch">
+  <div class="section-inner flexbox vertical stretch"> 
+    <div class="section-title">
+        Welcome <%= current_user.firstname %> <%= current_user.lastname %>
+    </div>
+
+    <table summary="user information">
+    <tr>
+        <th>First Name</th>
+        <td><%= current_user.firstname %></td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td><%= current_user.lastname%></td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td><%= current_user.email%></td>
+    </tr>
+    </table>
+    <p><%= link_to('Edit', edit_user_registration_path) %></p>
+  </div>
+</div>

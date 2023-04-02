@@ -1,0 +1,27 @@
+<h2>Hello <%=current_user.firstname%>! </h2>
+<% if user_signed_in? %>
+    <% if Card.find_by(user_id: current_user.id).present? %>
+        <table summary= "Your Payment Information:">
+            <tr>
+            <th>Name on Card: </th>
+            <td><%=@card.name%>
+            </tr>
+            <tr>
+            <th>Card Number: </th>
+            <td>xxxx xxxx xxxx <%=@card.card_number[-4..-1]%>
+            </tr>
+        </table>
+        <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
+    <%else %>
+        <p>You do not have a card on file. Please add a new card. </p>
+        <h2><%= link_to "Add card", new_card_path(@card)%></h2>
+    <% end %>
+
+<%else %>
+
+    <p>Please Sign Up or Sign In to view the content.</p>
+    <h2><%= link_to "Sign up or Sign In", user_session_path%>
+
+<% end %>
+
+

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :bikes do
     member do
+      get :delete
     end
   end
     

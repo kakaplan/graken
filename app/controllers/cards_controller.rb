@@ -18,6 +18,9 @@ class CardsController < ApplicationController
     def new 
         if user_signed_in?
             if Card.find_by(user_id: current_user.id).present? 
+
+                @card = Card.find_by(user_id: current_user.id)
+                
                 flash[:alert] = ["You already have a card set up!"]
             else
                 @card = Card.new(created_at: Time.now, 

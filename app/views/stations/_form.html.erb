@@ -1,0 +1,30 @@
+<table summary="Station form fields">
+  <tr>
+    <th>Identifier</th>
+    <td><%= f.text_field(:identifier) %></td>
+  </tr>
+  <tr>
+  <th>Name</th>
+  <td><%= f.text_field(:name) %></td>
+</tr>
+  <tr>
+    <th>Address</th>
+    <td><%= f.text_field(:address) %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <td><%= f.select(:status, Station.statuses.keys) %></td>
+  </tr>
+  <tr>
+    <th>Longitude</th>
+    <td><%= f.text_field(:longitude) %></td>
+  </tr>
+  <tr>
+    <th>Latitude</th>
+    <td><%= f.text_field(:latitude) %></td>
+  </tr>
+  <tr>
+    <th>Theme Name</th>
+    <td><%= f.text_field(:theme_name) %></td>
+  </tr>
+</table>

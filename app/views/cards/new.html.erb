@@ -6,7 +6,7 @@
         <% if Card.find_by(user_id: current_user.id).present? %>
         <div>Please edit or view your card from here:</div>
         <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
-        <h2><%= link_to "View", show_card_path(@card)%></h2>
+        <h2><%= link_to "View", card_path(@card)%></h2>
         <% else %>
             <%=form_for(@card) do |f| %>
             

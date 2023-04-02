@@ -1,0 +1,14 @@
+<div class="bikes edit">
+  <h2>Edit bike</h2>
+
+  <%= form_for(@bike) do |f| %>
+    <% # url: bike_path(@bike), method: 'patch' %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Save Changes") %>
+    </div>
+
+  <% end %>
+</div>

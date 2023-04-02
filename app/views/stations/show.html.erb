@@ -40,9 +40,13 @@
 
   <h3>Bikes docked here</h3>
   <table summary="Docked bikes">
+  <p><%=link_to("New bike", new_bike_path(@station))%></p>
   <%for bike in @station.docked_bikes do%>
     <tr>
-      <td><%=bike.identifier%> at station <%=bike.current_station_id%> <%= link_to("show", bike_path(bike)) %></td>
+      <td><%=bike.identifier%> at station <%=bike.current_station_id%>
+       <%= link_to("show", bike_path(bike)) %>
+       <%= link_to("edit", edit_bike_path(bike)) %>
+       <%=link_to("delete", delete_bike_path)%></td>
     </tr>
   <%end%>
   </table>

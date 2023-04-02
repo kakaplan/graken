@@ -2,7 +2,8 @@
   <p> <%=link_to("Back to station", station_path(Station.find_by(identifier: @bike.current_station_id))) %> </p>
   <h2>Showing bike <%=@bike.identifier%></h2>
   <div class="actions">
-    
+    <%=link_to("Edit", edit_bike_path)%>
+    <%=link_to("Delete", delete_bike_path)%>
   </div>
 
   <table summary = "bike detail view">

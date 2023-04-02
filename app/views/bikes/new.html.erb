@@ -1,0 +1,13 @@
+<div class="bikes new">
+    <h2>Add a New Bike</h2>
+
+    <%= form_for(@bike) do |f| %>
+        <% # url: bikes_path, method: 'post' %>
+        <%= render(partial: 'form', locals: {f: f}) %>
+
+        <div class = "form-buttons">
+            <%= f.submit("Save New Bike") %>
+        </div>
+    <% end %>
+
+</div>

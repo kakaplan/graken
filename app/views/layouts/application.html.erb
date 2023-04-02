@@ -16,6 +16,7 @@
     <div id="site-container" class="flexbox vertical stretch flex-1">
     <%= render "layouts/navigationbar"%>
       <div class="flexbox vertical center">
+      <%= render(partial: 'layouts/flash') %>
       <%# <h1> Graken </h1> %>
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>

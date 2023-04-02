@@ -17,8 +17,26 @@
     <%= render "layouts/navigationbar"%>
       <div class="flexbox vertical center">
       <%= render(partial: 'layouts/flash') %>
+      <%# <h1> Graken </h1> %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
         <%= yield %>
       </div>
     </div>
+    <!--Footer-->
+  <div class="footer">
+ <p class="footer-text-left">
+    <p>Contact Us</p>
+    <p>Address:</p>
+    <p>Email:</p>
+    <p>Number</p>
+    <%# <a href="https://css.sammy-codes.com/about.html" class="menu">about</a>  %>
+
+  </div>
+  
   </body>
 </html>

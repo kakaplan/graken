@@ -30,6 +30,8 @@ class BikesController < ApplicationController
       @bike = Bike.find(params[:id])
     end
 
+    # TODO: use update! instead of update (to ensure errors show)
+    # Also change this for stations
     def update
       @bike = Bike.find(params[:id])
       if @bike.update(bike_params)

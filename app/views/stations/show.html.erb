@@ -40,6 +40,7 @@
 
   <h3>Bikes docked here</h3>
   <table summary="Docked bikes">
+  # TODO: auto insert station identifier into new bike form
   <p><%=link_to("New bike", new_bike_path(@station))%></p>
   <%for bike in @station.docked_bikes do%>
     <tr>

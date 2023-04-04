@@ -16,13 +16,19 @@
 
  /*Styling for the navigation bar. TODO: We should definitely change this!*/
 .navbar {
-    background-color: rgb(13, 171, 124);
+    /* background-image: linear-gradient(to bottom right,  var(--blue-color), var(--darkblue-color)); */
+    background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;
     padding-bottom: 10px;
     margin-bottom: 20px;
+
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-color: var(--white-color);
 }
 nav ul {
+
     margin: 0;
     padding: 0;
 }
@@ -31,4 +37,21 @@ nav li {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 5px;
+    /* makes a border for every list item */
+    border-right: 1px solid #ffffff;
 }
+/* removes the last border from list */
+li:last-child {
+    border-right: none;
+  }
+li a {
+    display: block;
+    color:var(--white-color); 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+/* change  link to black on hover */
+li a:hover {
+    background-color: var(--darkblue-color);
+  }  

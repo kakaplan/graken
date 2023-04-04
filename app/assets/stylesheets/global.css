@@ -30,6 +30,30 @@ body {
   min-height: 100%;
   font-family: var(--body-font);
   font-weight: 400;
-  color: var(--black-color);
-  background: var(--green-color);
+  color: var(--white-color);
+  background-image: linear-gradient(to bottom right,  var(--darkblue-color), var(--blue-color));
+}
+
+.footer {
+  /* position:fixed; */
+  bottom:0;
+  left:0;
+  width:100%;
+  height: 90px;
+  background-color: var(--darkblue-color);
+  /* background-image: linear-gradient(to bottom right,  var(--blue-color), var(--darkblue-color)); */
+  color: var(--white-color)
+
+}
+
+.footer-text-left {
+  font-size:25px;
+  padding-left:40px;
+  float:left;
+  word-spacing:20px;
+}
+/* when mouse hovers change background color of text */
+a.menu:hover {
+  background-color:var(--white-color);
+  font-size:20px;
 }

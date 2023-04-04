@@ -1,24 +1,49 @@
 <div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch"> 
-    <div class="section-title">
-        Welcome <%= current_user.firstname %> <%= current_user.lastname %>
+  <% if user_signed_in? %>
+
+    <div class="section-inner flexbox vertical stretch"> 
+      <div class="section-title">
+          Welcome <%= current_user.firstname %> <%= current_user.lastname %>
+      </div>
+      <table summary="user information">
+      <tr>
+          <th>First Name</th>
+          <td><%= current_user.firstname %></td>
+      </tr>
+      <tr>
+          <th>Last Name</th>
+          <td><%= current_user.lastname%></td>
+      </tr>
+      <tr>
+          <th>Email</th>
+          <td><%= current_user.email%></td>
+      </tr>
+      </table>
+      <h2><%= link_to('Edit User Info', edit_user_registration_path) %></h2>
     </div>
 
-    <table summary="user information">
-    <tr>
-        <th>First Name</th>
-        <td><%= current_user.firstname %></td>
-    </tr>
-    <tr>
-        <th>Last Name</th>
-        <td><%= current_user.lastname%></td>
-    </tr>
-    <tr>
-        <th>Email</th>
-        <td><%= current_user.email%></td>
-    </tr>
-    </table>
-    <p><%= link_to('Edit', edit_user_registration_path) %></p>
-    <%= link_to "Back", users_path%>
-  </div>
+    <% if Card.find_by(user_id: current_user.id).present? %>
+        <% @card = Card.find_by(user_id: current_user.id) %>
+          <table summary= "Your Payment Information:">
+              <tr>
+              <th>Name on Card: </th>
+              <td><%=@card.name%>
+              </tr>
+              <tr>
+              <th>Card Number: </th>
+              <td>xxxx xxxx xxxx <%=@card.card_number[-4..-1]%>
+              </tr>
+          </table>
+          <h2><%= link_to "Edit Card Info", edit_card_path(@card)%></h2>
+          <h2><%= link_to "Back", users_path%><h2>
+    <%else %>
+        <p>You do not have a card on file. Please add a new card. </p>
+        <h2><%= link_to "Add card", new_card_path(@card)%></h2>
+    <% end %>
+    
+  <%else %>
+    <p>Please Sign Up or Sign In to view the content.</p>
+    <h2><%= link_to "Sign up or Sign In", user_session_path%>
+  <% end %>
+
 </div>

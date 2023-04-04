@@ -1,0 +1,8 @@
+<div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
+    flexbox vertical stretch">
+    ID <%=bike.id%>, identifier <%=bike.identifier%> at station <%=bike.current_station_id%>: 
+    <%=Station.find_by(identifier: bike.current_station_id).name %>      
+    <%= link_to("show", bike_path(bike)) %>
+    <%= link_to("edit", edit_bike_path(bike)) %>
+    <%=link_to("delete", delete_bike_path(bike))%></td>
+</div>

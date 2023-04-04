@@ -1,0 +1,23 @@
+<div class="bikes show">
+  <p> <%=link_to("Back to station", station_path(Station.find_by(identifier: @bike.current_station_id))) %> </p>
+  <h2>Showing bike <%=@bike.identifier%></h2>
+  <div class="actions">
+    <%=link_to("Edit", edit_bike_path)%>
+    <%=link_to("Delete", delete_bike_path)%>
+  </div>
+
+  <table summary = "bike detail view">
+    <tr>
+        <th>ID</th>
+        <td> <%= @bike.id %> </td>
+    </tr>
+    <tr>
+        <th>identifier</th>
+        <td> <%= @bike.identifier %> </td>
+    </tr>
+    <tr>
+        <th>Current Station: </th>
+        <td><%= @bike.current_station_id %> - <%=Station.find_by(identifier: @bike.current_station_id).name%></td>
+    </tr>
+  </table>
+</div>

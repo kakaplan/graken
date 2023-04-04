@@ -1,0 +1,15 @@
+<div class="bikes delete">
+  <h2>Delete bike</h2>
+
+  <%= form_for(@bike, method: 'delete') do |f| %>
+    <% # url: bike_path(@bike), method: 'delete' %>
+
+    <p>Are you sure you want to permanently delete this bike?</p>
+    <p><%= @bike.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete bike") %>
+    </div>
+
+  <% end %>
+</div>

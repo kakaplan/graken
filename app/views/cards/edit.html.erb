@@ -1,66 +1,61 @@
 <%= link_to('back to payment',cards_path, :class => 'back-link' )%>
 <div class="card edit">
     <h2>Edit Payment</h2>
-    <% if user_signed_in? %>
-        <% if Card.find_by(user_id: current_user.id).present? %>
-            <%=form_for(@card) do |f| %>
-                <% # url: card_path(@card), method: 'patch' %>
-                <table summary="Fill the form fields">
+    <% if Card.find_by(user_id: current_user.id).present? %>
+        <%=form_for(@card) do |f| %>
+            <% # url: card_path(@card), method: 'patch' %>
+            <table summary="Fill the form fields">
+            <tr>
+                    <th>User ID</th>
+                    <td><%= f.text_field(:user_id, readonly: "readonly") %></td> 
+                </tr>
                 <tr>
-                        <th>User ID</th>
-                        <td><%= f.text_field(:user_id, readonly: "readonly") %></td> 
-                    </tr>
-                    <tr>
-                        <th>Name on card</th>
-                        <td><%= f.text_field(:name, placeholder: "Firstname Lastname") %></td> 
-                    </tr>
+                    <th>Name on card</th>
+                    <td><%= f.text_field(:name, placeholder: "Firstname Lastname") %></td> 
+                </tr>
 
-                    <tr>
-                        <th>Card number</th>
-                        <td><%= f.text_field(:card_number, placeholder: "0000000000000000")  %></td> 
-                    </tr>
-                    
-                    <tr>
-                        <th>CV</th>
-                        <td><%= f.text_field(:cv, placeholder: "000") %></td> 
-                    </tr>
-                    
-                    <tr>
-                        <th>Expiration Month</th>
-                        <td><%= f.select(:exp_month,["01","02","03","04","05","06","07","08","09","10","11","12"], { :class => 'my_style_class' }, selected: @card.exp_month) %></td> 
-                    </tr>
+                <tr>
+                    <th>Card number</th>
+                    <td><%= f.text_field(:card_number, placeholder: "0000000000000000")  %></td> 
+                </tr>
+                
+                <tr>
+                    <th>CV</th>
+                    <td><%= f.text_field(:cv, placeholder: "000") %></td> 
+                </tr>
+                
+                <tr>
+                    <th>Expiration Month</th>
+                    <td><%= f.select(:exp_month,["01","02","03","04","05","06","07","08","09","10","11","12"], { :class => 'my_style_class' }, selected: @card.exp_month) %></td> 
+                </tr>
 
-                    <tr>
-                        <th>Expiration Year</th>
-                        <td><%= f.select(:exp_year,["2023","2024","2025","2026","2027","2028","2029","2030","2031","2032","2033"], { :class => 'my_style_class' }, selected: @card.exp_year) %></td> 
-                    </tr>
+                <tr>
+                    <th>Expiration Year</th>
+                    <td><%= f.select(:exp_year,["2023","2024","2025","2026","2027","2028","2029","2030","2031","2032","2033"], { :class => 'my_style_class' }, selected: @card.exp_year) %></td> 
+                </tr>
 
-                    <tr>
-                        <th>Date created</th>
-                        <td><%= f.text_field(:created_at, readonly: "readonly") %></td> 
-                    </tr>
+                <tr>
+                    <th>Date created</th>
+                    <td><%= f.text_field(:created_at, readonly: "readonly") %></td> 
+                </tr>
 
-                    <tr>
-                        <th>Date updated</th>
-                        <td><%= f.text_field(:updated_at, readonly: "readonly") %></td> 
-                    </tr>
+                <tr>
+                    <th>Date updated</th>
+                    <td><%= f.text_field(:updated_at, readonly: "readonly") %></td> 
+                </tr>
 
-                </table>
+            </table>
 
-                <div class="form-buttons">
-                    <%= f.submit("Update Card") %>
-                </div>
-            <% end %>
-
-        <%else %>
-            <p>You do not have a card on file. Please add a new card. </p>
-            <h2><%= link_to "Add card", new_card_path(@card)%></h2>
+            <div class="form-buttons">
+                <%= f.submit("Update Card") %>
+            </div>
         <% end %>
 
     <%else %>
-        <p>Please Sign Up or Sign In to view the content.</p>
-        <h2><%= link_to "Sign up or Sign In", user_session_path%>
+        <p>You do not have a card on file. Please add a new card. </p>
+        <h2><%= link_to "Add card", new_card_path(@card)%></h2>
     <% end %>
+
 </div>
 
                

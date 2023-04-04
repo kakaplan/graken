@@ -4,33 +4,25 @@ class CardsController < ApplicationController
     end
     
     def show
-        if user_signed_in?
-            if Card.find_by(user_id: current_user.id).present?
-                @card = Card.find_by(user_id: current_user.id)
-            else
-                flash[:alert] = ["You do not have a card set up yet!"]
-            end
-        else 
-            flash[:alert] = ["You are not signed in!"]
+        if Card.find_by(user_id: current_user.id).present?
+            @card = Card.find_by(user_id: current_user.id)
+        else
+            flash[:alert] = ["You do not have a card set up yet!"]
         end
     end
 
     def new 
-        if user_signed_in?
-            if Card.find_by(user_id: current_user.id).present? 
+        if Card.find_by(user_id: current_user.id).present? 
 
-                @card = Card.find_by(user_id: current_user.id)
-                
-                flash[:alert] = ["You already have a card set up!"]
-            else
-                @card = Card.new(created_at: Time.now, 
-                        updated_at: Time.now,
-                        user_id: current_user.id)
-            end
-
+            @card = Card.find_by(user_id: current_user.id)
+            
+            flash[:alert] = ["You already have a card set up!"]
+        else
+            @card = Card.new(created_at: Time.now, 
+                    updated_at: Time.now,
+                    user_id: current_user.id)
         end
-        
-        
+
     end
 
     def create
@@ -49,17 +41,12 @@ class CardsController < ApplicationController
  
 
     def edit 
-        if user_signed_in?
-            if Card.find_by(user_id: current_user.id).present?
-                @card = Card.find_by(user_id: current_user.id)
-            else
-                flash[:alert] = ["You do not have a card set up yet!"]
-            end
-        else 
-            flash[:alert] = ["You are not signed in!"]
+        if Card.find_by(user_id: current_user.id).present?
+            @card = Card.find_by(user_id: current_user.id)
+        else
+            flash[:alert] = ["You do not have a card set up yet!"]
         end
-
-
+        
     end
 
     def update
@@ -67,7 +54,10 @@ class CardsController < ApplicationController
         if @card.update(params.require(:card).permit(:card_number, :cv,:name,:exp_year,:exp_month,:created_at,:updated_at,:user_id))
             redirect_to card_path(@card)
         else
-            render('edit')
+            if @card.errors.any?
+                flash[:alert] = @card.errors.full_messages
+            end
+            render('edit', :status => :unprocessable_entity)
         end
     end
 

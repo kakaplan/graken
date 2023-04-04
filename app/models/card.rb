@@ -18,4 +18,6 @@ class Card < ApplicationRecord
                                message: "only allows first name and last name" },
                                presence: true
 
+    has_many :rental_history, class_name: :Rental, primary_key: :id, foreign_key: :card_id 
+    belongs_to :user, class_name: :User, primary_key: :id, foreign_key: :user_id
 end

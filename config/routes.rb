@@ -30,6 +30,9 @@ Rails.application.routes.draw do
 
   get '/register' => 'users#register' 
   get '/bikes' => 'bikes#index'
+  get '/faq' => 'faq#index'
+  get '/about' => 'about#index'
+  root to: 'stations#index'
   root to: 'station_maps#index'
 end
 

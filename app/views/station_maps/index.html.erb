@@ -3,39 +3,43 @@
 
 <body>
   <head>
+  
    <!-- includes leaflet library: leaflet css and leaflet js  -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 
-  <!-- sets maps position to entire page -->
-    <%# <style> #map {position: absolute; top: 0; bottom: 0; left: 0; right: 0;} 
-    </style> %>
+  <!-- sets maps position -->
+    <style> #map {position: absolute; top: 5; bottom: 0; left: 0; right: 0;} 
+    </style>
 
   </head>
 
   <div>
-    <h1 class="font-bold text-4xl">StationMaps Index</h1>
-    <p>this is the main page of station map, map will appear here</p>
+    <h1 class="font-bold text-4xl">Station Map</h1>
     <p>find me in app/views/station_maps/index.html.erb</p>
-    <%= @stations %>
   </div>
 
   <!-- sets map id and map h,w,p -->
-  <div id = "map" style= "width: 600px; height: 400px; position:relative;"></div>
+  <div id = "map" style= "width: 600px; height: 400px"></div>
   
   <script>
-    <!-- sets map view: lat,long, zoom position -->
-    var map = L.map('map').setView([42.31, -72.64], 10);
+    <!-- sets initial map view: lat,long, zoom position -->
+    var map = L.map('map').setView([42.3238896, -72.652456], 14);
     
     <!-- adds a style to  map chosen from online source; maptiler: raster tiles, license  -->  
     L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=4BB14XvJg8kIpx8YLSXf', {
-      maxZoom: 19,
+      maxZoom: 20,
       attribution: '<a href="<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy OpenStreetMap contributors</a>' ,
     }).addTo(map);
+
+    var leafletIcon = L.icon({
+      iconUrl: '/Submarine.png',
+      iconSize: [33,33],
+    })
     
     <!-- grabs lng, lat from station data to create marker --> 
     <% for station in @stations do  %>
-      var marker = L.marker([<%=station.latitude%>, <%=station.longitude%>]).addTo(map)
+      var marker = L.marker([<%=station.latitude%>, <%=station.longitude%>],{icon:leafletIcon}).addTo(map)
       .bindPopup(' <%=station.theme_name%> :<br> <%=station.name%>')
     <% end %>
 

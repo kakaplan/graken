@@ -1,4 +1,5 @@
 class StationsController < ApplicationController
+  before_action :require_admin
   
   def index
     @stations = Station.all.order(identifier: :asc)
@@ -61,6 +62,13 @@ class StationsController < ApplicationController
       :latitude,
       :theme_name
     )
+  end
+
+  def require_admin
+    unless current_user.admin
+      flash[:error] = "You do not have permission to access this page."
+      redirect_to root_path
+    end
   end
 
 end

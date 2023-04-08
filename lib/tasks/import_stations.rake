@@ -12,11 +12,8 @@ namespace :import_stations do
       s.identifier = row["identifier"]
       s.name = row["name"]
       s.address = row["address"]
-      s.count = row["docked_bike_count"]
       s.save
-      puts "#{s.name}, #{s.count} saved"
     end
-  puts "There are now #{Station.count} rows in the station table"
 
   end
 

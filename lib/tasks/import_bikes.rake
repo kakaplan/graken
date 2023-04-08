@@ -14,8 +14,6 @@ namespace :import_bikes do
       b.save
       puts "#{b.identifier}, #{b.current_station_id} saved"
     end
-  puts "There are now #{Bike.count} rows in the Bike table"
-
   end
 
 end

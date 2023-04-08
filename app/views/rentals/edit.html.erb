@@ -1,0 +1,29 @@
+<%= link_to('back to stations',rentals_path, :class => 'back-link' )%>
+<div class="rental edit">
+    <h2>Return Rental Form</h2>
+    
+        <%=form_for(@rental) do |f| %>
+        
+            <table summary="Fill the form fields">
+
+            <tr>
+                <th>End Station</th>
+                <td><%= f.collection_select(:end_station_id, Station.all, :id, :name, prompt: true) %></td> 
+            </tr>
+
+            <tr>
+                <th>End Time</th>
+                <td><%= f.text_field(:end_time, readonly: "readonly") %></td> 
+            </tr>
+
+            </table>
+
+            <div class="form-buttons">
+                <%= f.submit("Return") %>
+            </div>
+
+
+        
+    <% end %>
+</div>
+

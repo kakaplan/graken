@@ -1,0 +1,45 @@
+<%= link_to('back to stations',rentals_path, :class => 'back-link' )%>
+<div class="rental new">
+    <h2>Rental Form</h2>
+    
+        <%=form_for(@rental) do |f| %>
+        
+            <table summary="Fill the form fields">
+
+            <tr>
+                <th>User ID</th>
+                <td><%= f.text_field(:user_id, readonly: "readonly") %></td> 
+            </tr>
+
+            <tr>
+                <th>Bike ID</th>
+                <td><%= f.text_field(:bike_id, readonly: "readonly") %></td> 
+            </tr>
+
+            <tr>
+                <th>Card ID</th>
+                <td><%= f.text_field(:card_id, readonly: "readonly") %></td> 
+            </tr>
+
+            <tr>
+                <th>Start Station</th>
+                <td><%= f.text_field(:start_station_id, readonly: "readonly") %></td> 
+            </tr>
+
+            <tr>
+                <th>Start Time</th>
+                <td><%= f.text_field(:start_time, readonly: "readonly") %></td> 
+            </tr>
+
+            </table>
+
+            <div class="form-buttons">
+                <%= f.submit("Rent") %>
+            </div>
+
+
+        
+    <% end %>
+</div>
+
+               

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'station_maps/new'
   get 'station_maps/edit'
 
+  get'rentals/index'
+
+  resources :rentals
+
   resources :cards do
     member do 
       get :delete 

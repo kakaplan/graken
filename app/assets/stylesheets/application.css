@@ -54,4 +54,8 @@ li a {
 /* change  link to black on hover */
 li a:hover {
     background-color: var(--darkblue-color);
-  }  
+  } 
+  
+.tempcolor{
+  background-color: var(--darkblue-color);
+}

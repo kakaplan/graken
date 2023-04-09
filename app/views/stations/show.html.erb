@@ -1,6 +1,6 @@
 <div class="stations show">
   <p><%= link_to('Back to Station List', stations_path) %></p>
-  <h2>Showing <%=@station.name%></h2>
+  <h2>Showing <%=@station.identifier%>: <%=@station.name%></h2>
 
   <div class="actions">
     <%= link_to('Edit', edit_station_path(@station)) %>
@@ -17,12 +17,12 @@
         <td><%= @station.status%></td>
     </tr>
     <tr>
-        <th>Longitude</th>
-        <td><%= @station.longitude %></td>
-    </tr>
-    <tr>
         <th>Latitude</th>
         <td><%= @station.latitude %></td>
+    </tr>
+    <tr>
+        <th>Longitude</th>
+        <td><%= @station.longitude %></td>
     </tr>
     <tr>
         <th>Theme Name</th>

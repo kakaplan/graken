@@ -84,3 +84,6 @@ gem 'devise'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+# Stack overflow suggested for fixing logout button
+gem 'jquery-rails'

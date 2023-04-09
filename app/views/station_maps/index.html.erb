@@ -7,44 +7,69 @@
    <!-- includes leaflet library: leaflet css and leaflet js  -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-
-  <!-- sets maps position -->
-    <style> #map {position: absolute; top: 5; bottom: 0; left: 0; right: 0;} 
-    </style>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <div>
     <h1 class="font-bold text-4xl">Station Map</h1>
-    <p>find me in app/views/station_maps/index.html.erb</p>
   </div>
 
-  <!-- sets map id and map h,w,p -->
-  <div id = "map" style= "width: 600px; height: 400px"></div>
-  
-  <script>
-    <!-- sets initial map view: lat,long, zoom position -->
-    var map = L.map('map').setView([42.3238896, -72.652456], 14);
-    
-    <!-- adds a style to  map chosen from online source; maptiler: raster tiles, license  -->  
-    L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=4BB14XvJg8kIpx8YLSXf', {
-      maxZoom: 20,
-      attribution: '<a href="<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy OpenStreetMap contributors</a>' ,
-    }).addTo(map);
+  <div class = "page-section section-inner flexbox vertical stretch" >
+    <section>
+      <!-- creates collapsable for every station-->
+      <div class = "station-side-bar" >
+        <% for station in @stations do %>
+          <button type="button" class="collapsible" ><%=station.name%></button>
+          <div class="content">
+            <p> Station status: <%=station.status%></p>
+            <p> Total Bikes: <%=station.docked_bikes.count%></p>
+            <form>
+              <% for bikes in station.docked_bikes do %> 
+              <input type="checkbox" >
+              <label>  Bike <%=bikes.identifier%> (<%=bikes.status%>)</label><br>
+              <% end %>
+            </form>
+          </div>
+        <% end %>
+      </div>
 
-    var leafletIcon = L.icon({
-      iconUrl: '/Submarine.png',
-      iconSize: [33,33],
-    })
-    
-    <!-- grabs lng, lat from station data to create marker --> 
-    <% for station in @stations do  %>
-      var marker = L.marker([<%=station.latitude%>, <%=station.longitude%>],{icon:leafletIcon}).addTo(map)
-      .bindPopup(' <%=station.theme_name%> :<br> <%=station.name%>')
-    <% end %>
 
-  </script>  
+      <!-- map set up -->
+      <div id = "map" class = "map-section">
+        <script>
+          <!-- sets initial map view: lat,long, zoom position -->
+          var map = L.map('map').setView([42.3238896, -72.652456], 14);
+          
+          <!-- adds a style to  map chosen from online source; maptiler: raster tiles, license  -->  
+          L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=4BB14XvJg8kIpx8YLSXf', {
+            maxZoom: 20,
+            attribution: '<a href="<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy OpenStreetMap contributors</a>' ,
+          }).addTo(map);
+
+          <!-- adds submarine icon to marker-->
+          var leafletIcon = L.icon({
+            iconUrl: '/Submarine.png',
+            iconSize: [33,33],
+          })
+          
+          <!-- grabs lng, lat from station data to create marker --> 
+          <% for station in @stations do  %>
+            var marker = L.marker([<%=station.latitude%>, <%=station.longitude%>],{icon:leafletIcon}).addTo(map)
+            .bindPopup(' <%=station.theme_name%> :<br> <%=station.name%>')
+          <% end %>
+
+        </script>
+      </div>
+
+
+      <div id = "rentnow" class = "rentnowbutton" >
+        <button type="button"> Rent Now</button>
+      </div>
+    
+    
+    </section>
+  </div>
 
 </body>
-
+<%# number of bikes docked %>
 </html>

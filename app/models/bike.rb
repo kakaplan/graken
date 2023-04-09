@@ -10,11 +10,14 @@ class Bike < ApplicationRecord
   
   validate :current_station_exists
   
+  def current_station
+    Station.find_by(identifier: current_station_id)
+  end
+  
   private
 
   def current_station_exists
     return if Station.where(identifier: current_station_id).any?
     errors.add(:current_station_id, "Station Identifier must belong to an existing station.")
   end
-  
 end

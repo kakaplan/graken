@@ -19,7 +19,7 @@ class RentalsController < ApplicationController
                 card_id: current_user.current_card.id,
                 bike_id: Bike.find_by(id: params[:rental]).identifier,
                 start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
-                Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(identifier: Bike.find_by(id: params[:rental]).identifier))
+                Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: params[:rental]))
             else
                 @rental = Rental.find_by(user_id: current_user.id)
                 redirect_to rentals_path
@@ -31,7 +31,7 @@ class RentalsController < ApplicationController
                                 card_id: current_user.current_card.id,
                                 bike_id: Bike.find_by(id: params[:rental]).identifier,
                                 start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
-            Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: Bike.find_by(identifier: params[:rental]).identifier))
+            Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: params[:rental]))
            
         end
 

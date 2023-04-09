@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_005106) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_08_190717) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_005106) do
     t.string "status"
     t.float "battery"
     t.float "mileage"
+    t.string "theme_name"
   end
 
   create_table "cards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -52,7 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_005106) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "count"
     t.integer "status", default: 1, null: false
     t.decimal "longitude", precision: 9, scale: 7
     t.decimal "latitude", precision: 9, scale: 7
@@ -69,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_005106) do
     t.datetime "updated_at", null: false
     t.string "firstname"
     t.string "lastname"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

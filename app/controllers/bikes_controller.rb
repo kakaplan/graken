@@ -1,4 +1,5 @@
 class BikesController < ApplicationController
+    before_action :require_admin
 
     def index
       @bikes = Bike.all
@@ -57,7 +58,20 @@ class BikesController < ApplicationController
     def bike_params
       params.require(:bike).permit(
         :identifier,
-        :current_station_id
+        :current_station_id,
+        :status,
+        :battery,
+        :mileage,
+        :theme_name
       )
+    end
+    
+    # TODO: should this method go somewhere else? Since it's also in stations_controller
+    # TODO: the error is not showing up, it's just redirecting
+    def require_admin
+      unless current_user.admin
+        flash[:error] = "You do not have permission to access this page."
+        redirect_to root_path
+      end
     end
 end

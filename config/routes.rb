@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get '/users/account_info'
   get '/users/current_rental'
   get '/users/bike_history'
+  get '/users/sign_out' => 'station_maps#index'
 
   get '/register' => 'users#register' 
   get '/bikes' => 'bikes#index'

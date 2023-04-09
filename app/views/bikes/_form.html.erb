@@ -6,7 +6,7 @@
 
     <tr>
         <th>Current Station Identifier</th>
-        <td><%=f.text_field(:current_station_id)%></td>
+        <td><%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %></td>
     </tr>
 
 </table>

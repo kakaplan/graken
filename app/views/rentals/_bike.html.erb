@@ -1,0 +1,6 @@
+<div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
+    flexbox vertical stretch">
+    Bike number: <%=bike.id%> 
+    
+    <%= link_to("Rent Now", new_rental_path(:rental => bike.id)) %>
+</div>

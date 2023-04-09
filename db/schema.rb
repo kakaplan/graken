@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_190717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "identifier"
+    t.integer "status", default: 1, null: false
   end
 
   create_table "stations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

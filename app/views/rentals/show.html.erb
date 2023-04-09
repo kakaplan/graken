@@ -1,0 +1,24 @@
+<div class="rental show">
+  <p><%= link_to('Back to Station List', rentals_path) %></p>
+  <h2>Showing <%=@station.theme_name%>: <%=@station.address%></h2>
+
+  <div class="actions">
+
+  </div>
+
+  <table summary="station detail view">
+    <tr>
+        <th>Address</th>
+        <td><%= @station.address %></td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td><%= @station.status%></td>
+    </tr>
+  </table>
+
+  <h3>Bikes docked here</h3>
+  <table summary="Docked bikes">
+  <%= render(partial: "rentals/bike", collection: @bikes, as: :bike) %>
+  </table>
+</div>

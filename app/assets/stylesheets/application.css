@@ -54,7 +54,7 @@ li a {
 /* change  link to black on hover */
 li a:hover {
     background-color: var(--darkblue-color);
-  }  
+  } 
 
 .map-section{
   float: right;

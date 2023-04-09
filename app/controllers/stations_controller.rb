@@ -65,7 +65,7 @@ class StationsController < ApplicationController
   end
 
   def require_admin
-    unless current_user.admin
+    unless user_signed_in? and current_user.admin
       flash[:error] = "You do not have permission to access this page."
       redirect_to root_path
     end

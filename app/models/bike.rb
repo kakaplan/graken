@@ -13,7 +13,11 @@ class Bike < ApplicationRecord
   def current_station
     Station.find_by(identifier: current_station_id)
   end
-  
+
+  def identifier_with_name
+    "#{identifier}: #{theme_name}"
+  end
+
   private
 
   def current_station_exists

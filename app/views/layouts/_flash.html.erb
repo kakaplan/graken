@@ -1,21 +1,23 @@
 <% if flash[:alert].present? %>
     <div id="flash-alert" style="border: 1px solid red; color: red; padding: 10px;">
-    <% if flash[:alert].class != Array %>
-        <% flash[:alert] = [flash[:alert]] %>
-    <% end %>
-    <% for alert in flash[:alert] %>
-        <p><%= alert %> </p>
+    <% if flash[:alert].class == Array %>
+        <% for alert in flash[:alert] %>
+            <p><%= alert %> </p>
+        <% end %>
+    <% else %>
+        <p><%= flash[:alert] %> </p>
     <% end %>
     </div>
 <% end %>
 
 <% if flash[:notice].present? %>
-    <% if flash[:notice].class == String %>
-        <% flash[:notice] = [flash[:notice]] %>
+    <% if flash[:notice].class == Array %>
+        <% for notice in flash[:notice] %>
+            <p><%= notice %> </p>
+        <% end %>
+    <% else %>
+        <p><%= flash[:notice] %> </p>
     <% end %>
-    <div id="flash-notice" style="border: 1px solid green; color: green; padding: 10px;">
-        <%= flash[:notice] %>
-    </div>
 <% end %>
 
 

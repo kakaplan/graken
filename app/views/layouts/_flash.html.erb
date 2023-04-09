@@ -1,6 +1,6 @@
 <% if flash[:alert].present? %>
     <div id="flash-alert" style="border: 1px solid red; color: red; padding: 10px;">
-    <% if flash[:alert].class == String %>
+    <% if flash[:alert].class != Array %>
         <% flash[:alert] = [flash[:alert]] %>
     <% end %>
     <% for alert in flash[:alert] %>

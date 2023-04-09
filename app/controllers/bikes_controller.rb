@@ -58,7 +58,11 @@ class BikesController < ApplicationController
     def bike_params
       params.require(:bike).permit(
         :identifier,
-        :current_station_id
+        :current_station_id,
+        :status,
+        :battery,
+        :mileage,
+        :theme_name
       )
     end
     

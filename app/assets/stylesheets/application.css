@@ -56,6 +56,60 @@ li a:hover {
     background-color: var(--darkblue-color);
   }  
 
+.map-section{
+  float: right;
+  position: relative;
+}
+
+#map{
+  width: 600px; 
+  height: 400px;
+  /* float: right; */
+}
+.station-side-bar{
+  float: left;
+  height: 600px;
+  overflow: auto;
+  width: 40%;
+}
+
+/* styles button used to open and close  collapsible content */
+.collapsible {
+  /* display: flex; */
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+
+}
+
+/* adds bg color to button: on  click  and while hover */
+.active, .collapsible:hover {
+  background-color:var(--darkblue-color);
+}
+
+/* style collapsible content */
+.content {
+  padding: 0 20px;
+  display: none;
+  overflow: hidden;
+  background-color:var(--white-color);
+}
+
+.rentnowbutton{
+  position: relative;
+  padding: 18px;
+  float: right;
+  overflow: auto;
+  margin: 50px 50px 50px 50px;
+}
+
+
 /* displays user info */
 .user-info {
   display: flex;

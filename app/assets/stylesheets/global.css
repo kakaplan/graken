@@ -69,7 +69,8 @@ p {
   height: 90px;
   background-color: var(--darkblue-color);
   /* background-image: linear-gradient(to bottom right,  var(--blue-color), var(--darkblue-color)); */
-  color: var(--white-color)
+  color: var(--white-color);
+  font-family: var(--body-font);
 
 }
 

@@ -1,6 +1,7 @@
 <%= link_to('back to stations',rentals_path, :class => 'back-link' )%>
 <div class="rental new">
     <h2>Rental Form</h2>
+    <h3> You are renting the <%= Bike.find_by(identifier: @rental.bike_id).theme_name%> </h3>
     
         <%=form_for(@rental) do |f| %>
         

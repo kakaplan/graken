@@ -16,7 +16,8 @@
                     <button class="dropdown" style="float:right">
                         <li><%= current_user.firstname %> <%= current_user.lastname %></li>
                         <div class="dropdown-content">
-                            <li><%= link_to "User view", users_path%></li>
+                            <li><%= link_to "Account", users_path%></li>
+                            <li><%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }%></li>
                         </div>
                     </button>
                 <% else %>

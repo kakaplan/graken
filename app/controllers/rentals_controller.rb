@@ -11,28 +11,33 @@ class RentalsController < ApplicationController
     end
 
     def new 
-        if Rental.find_by(user_id: current_user.id).present?
+        if current_user.current_card.present?
+            if Rental.find_by(user_id: current_user.id).present?
+                if Rental.find_by(user_id: current_user.id).end_station_id.present?
+                    @rental = Rental.new(start_time: Time.now, 
+                    user_id: current_user.id,
+                    card_id: current_user.current_card.id,
+                    bike_id: Bike.find_by(id: params[:rental]).identifier,
+                    start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
+                    Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: params[:rental]))
+                else
+                    @rental = Rental.find_by(user_id: current_user.id)
+                    redirect_to rentals_path
+                    flash[:notice] = "You can only rent one bike at a time. Please end the ride to rent a new one."
+                end
 
-            if Rental.find_by(user_id: current_user.id).end_station_id.present?
-                @rental = Rental.new(start_time: Time.now, 
-                user_id: current_user.id,
-                card_id: current_user.current_card.id,
-                bike_id: Bike.find_by(id: params[:rental]).identifier,
-                start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
-                Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: params[:rental]))
             else
-                @rental = Rental.find_by(user_id: current_user.id)
-                redirect_to rentals_path
-                flash[:notice] = "You can only rent one bike at a time. Please end the ride to rent a new one."
+                @rental = Rental.new(start_time: Time.now, 
+                                    user_id: current_user.id,
+                                    card_id: current_user.current_card.id,
+                                    bike_id: Bike.find_by(id: params[:rental]).identifier,
+                                    start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
+                Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: params[:rental]))
+            
             end
         else
-            @rental = Rental.new(start_time: Time.now, 
-                                user_id: current_user.id,
-                                card_id: current_user.current_card.id,
-                                bike_id: Bike.find_by(id: params[:rental]).identifier,
-                                start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
-            Station.find_by(identifier: Bike.find_by(id: params[:rental]).current_station.identifier).docked_bikes.delete(Bike.find_by(id: params[:rental]))
-           
+            flash[:alert] = "Please setup the payment method before renting!"
+            redirect_to new_card_path
         end
 
     end
@@ -55,12 +60,17 @@ class RentalsController < ApplicationController
 
     def edit 
         puts("edit page")
-        @rental = Rental.find_by_id(params[:id])   
+        if Rental.find_by_id(params[:id]).present?
+            @rental = Rental.find_by_id(params[:id])  
+        else
+            flash[:alert] = ["You do not have a card set up yet!"]
+        end
+         
     end
 
     def update
-        Rental.find_by_id(params[:id]).update(end_time: Time.now, status: "closed",end_station_id: params[:rental][:end_station_id]) 
         Station.find_by_id(params[:rental][:end_station_id]).docked_bikes << Bike.find_by(identifier: Rental.find_by_id(params[:id]).bike_id)
+        Rental.find_by_id(params[:id]).update(end_time: Time.now, status: "closed",end_station_id: Station.find_by_id(params[:rental][:end_station_id]).identifier) 
         redirect_to rentals_path
     end
 end

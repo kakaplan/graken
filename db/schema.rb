@@ -54,7 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_190717) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "count"
     t.integer "status", default: 1, null: false
     t.decimal "longitude", precision: 9, scale: 7
     t.decimal "latitude", precision: 9, scale: 7

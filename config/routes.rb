@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'station_maps/new'
   get 'station_maps/edit'
 
-  get'rentals/index'
+  get 'rentals/index'
 
   resources :rentals
 
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get '/faq' => 'faq#index'
   get '/about' => 'about#index'
   #root to: 'stations#index'
-  root to: 'station_maps#index'
+  root to: 'home#index'
 end
 
 

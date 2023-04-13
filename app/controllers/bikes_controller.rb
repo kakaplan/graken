@@ -70,7 +70,7 @@ class BikesController < ApplicationController
     # TODO: the error is not showing up, it's just redirecting
     def require_admin
       unless user_signed_in? and current_user.admin
-        flash[:error] = "You do not have permission to access this page."
+        flash.alert = "You do not have permission to access the bikes page."
         redirect_to root_path
       end
     end

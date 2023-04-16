@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'station_maps/index'
   get 'station_maps/new'
   get 'station_maps/edit'
@@ -13,6 +14,19 @@ Rails.application.routes.draw do
     end
   end
   
+  # get 'updates/new'
+  # get 'updates/create'
+  # get 'updates/update'
+  # get 'updates/edit'
+  # get 'updates/destroy'
+  # get 'updates/index'
+  # get 'updates/show'
+  resources :updates do
+    member do
+      get :delete
+    end
+  end
+
   # get 'cards/index'
   # get 'cards/new'
   # get 'cardss/edit'

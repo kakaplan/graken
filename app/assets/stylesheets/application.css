@@ -28,7 +28,7 @@
     border-color: var(--white-color);
 }
 nav ul {
-
+    
     margin: 0;
     padding: 0;
 }
@@ -44,14 +44,14 @@ nav li {
 li:last-child {
     border-right: none;
   }
-li a {
+li a { 
     display: block;
     color:var(--white-color); 
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
-/* change  link to black on hover */
+/* change  link to blue on hover */
 li a:hover {
     background-color: var(--darkblue-color);
   } 

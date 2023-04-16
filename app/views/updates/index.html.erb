@@ -3,6 +3,9 @@
     <div class="section-title">
       Updates
     </div>
+    <% if user_signed_in? and current_user.admin%>
+      <%= link_to("Add update", new_update_path, class: 'action new') %>
+    <% end %>
     <div class="flexbox vertical stretch">
         <% for update in @updates do %>
           <div class = "update-box">
@@ -12,6 +15,11 @@
             <% end %>
 
             <p> Last modified <%= update.updated_at %> </p>
+            
+            <% if user_signed_in? and current_user.admin %>
+              <%= link_to("Edit", edit_update_path(update)) %>
+              <%= link_to("Delete", delete_update_path(update)) %>
+            <% end%>
           </div>
         <% end %>
     </div>

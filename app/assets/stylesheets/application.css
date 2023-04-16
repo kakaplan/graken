@@ -56,10 +56,16 @@ li a:hover {
     background-color: var(--darkblue-color);
   } 
 
-.map-section{
+.right-section{
   float: right;
   position: relative;
 }
+
+.left-section{
+  float: left;
+  position: relative;
+}
+
 
 #map{
   width: 600px; 

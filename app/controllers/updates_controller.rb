@@ -2,7 +2,7 @@ class UpdatesController < ApplicationController
   before_action :require_admin, except: :index
 
   def index
-    @updates = Update.all.order(params[:updated_at])
+    @updates = Update.all.order(params[:updated_at]).reverse_order
   end
 
   def new

@@ -4,30 +4,36 @@
 <header>
 <style>
 </style>
+
+<body>
     <div class='navbar'>
-        <h1> <%= link_to "Graken", root_path %></h1>
-        <nav>
-            <ul>
+        <div >
+        <h1> <a style="text-decoration: none; color: white;" href= <%=root_path%>>Graken</a> </h1>
+        </div>
+        
+        <nav >
+            <ul >
                 <li><%= link_to "Station Map", station_maps_index_path,  data: { turbo: false }%></li>
                 <li><%= link_to "About Us", about_path%></li>
                 <li><%= link_to "FAQ", faq_path%></li>
                 <li><%= link_to "Updates", updates_path%></li>
 
                 <% if user_signed_in? %>
-                    <button class="dropdown" style="float:right">
-                        <li><%= current_user.firstname %> <%= current_user.lastname %></li>
+                    <div class="dropdown" style="float:right">
+                        <li><%= current_user.firstname %><br> <%= current_user.lastname %></li>
                         <div class="dropdown-content">
                             <li><%= link_to "Account", users_path%></li>
                             <li><%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }%></li>
                         </div>
-                    </button>
+                    </div>
                 <% else %>
-                    <button class="user-info" style="float:right">
-                        <li><%= link_to "Log in", user_session_path%></li>
-                    </button>
+                    <li  style="float:right"> <%= link_to "Log in", user_session_path%></li>
                 <% end %>
+
             </ul>
         </nav>
     </div>
+
+</body>    
 </header>
 

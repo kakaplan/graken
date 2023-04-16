@@ -16,26 +16,28 @@
 
  /*Styling for the navigation bar. TODO: We should definitely change this!*/
 .navbar {
-    /* background-image: linear-gradient(to bottom right,  var(--blue-color), var(--darkblue-color)); */
     background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;
     padding-bottom: 10px;
     margin-bottom: 20px;
-
     border-width: 1px;
     border-bottom-style: solid;
     border-color: var(--white-color);
 }
-nav ul {
 
+nav ul {
     margin: 0;
     padding: 0;
+    
 }
+
 nav li {
+    width: 10%; /* equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center; /* If you want the text to be centered */
     display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-left: 5px;
+    margin-right: 8px; */
     margin-top: 5px;
     /* makes a border for every list item */
     border-right: 1px solid #ffffff;
@@ -54,12 +56,20 @@ li a {
 /* change  link to black on hover */
 li a:hover {
     background-color: var(--darkblue-color);
+    margin: -5px;
+
   } 
 
-.map-section{
+.right-section{
   float: right;
   position: relative;
 }
+
+.left-section{
+  float: left;
+  position: relative;
+}
+
 
 #map{
   width: 600px; 
@@ -111,11 +121,11 @@ li a:hover {
 
 
 /* displays user info */
-.user-info {
+/* .user-info {
   display: flex;
   background-color: var(--darkblue-color);
   color:var(--white-color);
-}
+} */
 
 
 /* dropdown for navigation bar */
@@ -125,6 +135,7 @@ li a:hover {
   position: relative;
   background-color: var(--darkblue-color);
   color:var(--white-color);
+  padding: 10px 10px 9px 10px;
 }
 .dropdown-content {
   display: none;

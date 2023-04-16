@@ -1,5 +1,5 @@
 class UpdatesController < ApplicationController
-  # TODO: before_action :require_admin unless index
+  before_action :require_admin, except: :index
 
   def index
     @updates = Update.all.order(params[:updated_at])

@@ -1,0 +1,14 @@
+<div class="updates delete">
+  <h2>Delete update</h2>
+
+  <%= form_for(@update, method: 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this update?</p>
+    <p><%= @update.title%></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete update") %>
+    </div>
+
+  <% end %>
+</div>

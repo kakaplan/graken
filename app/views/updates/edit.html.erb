@@ -1,0 +1,12 @@
+<div class="bikes update">
+  <h2>Edit Update</h2>
+
+  <%= form_for(@update) do |f| %>
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Save Changes") %>
+    </div>
+
+  <% end %>
+</div>

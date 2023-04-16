@@ -66,8 +66,6 @@ class BikesController < ApplicationController
       )
     end
     
-    # TODO: should this method go somewhere else? Since it's also in stations_controller
-    # TODO: the error is not showing up, it's just redirecting
     def require_admin
       unless user_signed_in? and current_user.admin
         flash.alert = "You do not have permission to access the bikes page."

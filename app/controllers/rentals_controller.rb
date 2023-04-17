@@ -59,7 +59,8 @@ class RentalsController < ApplicationController
         station = Station.find_by_id(params[:rental][:end_station_id]) 
         station.docked_bikes << Bike.find_by(identifier: Rental.find_by_id(params[:id]).bike_id)
         Rental.find_by_id(params[:id]).update(end_time: Time.now, status: "closed",
-                                            end_station_id: Station.find_by_id(station.identifier))
+                                            end_station_id: station.identifier)
+        Rental.find_by_id(params[:id]).save
         redirect_to rentals_path
     end
 end

@@ -23,12 +23,13 @@
           <div class="content">
             <p> Station status: <%=station.status%></p>
             <p> Total Bikes: <%=station.docked_bikes.count%></p>
-            <form>
-              <% for bikes in station.docked_bikes do %> 
-              <input type="checkbox" >
-              <label>  Bike <%=bikes.identifier%> (<%=bikes.status%>)</label><br>
+            <!-- creates bike rental form-->
+            <%= form_with url: "/rentals/new", method: :get do |form|%>
+              <%= form.collection_radio_buttons :rental, station.docked_bikes, :id, :theme_name, html_options: { class: 'form-control' } do |b| %>
+                <%= b.label { b.radio_button + " " + b.text } %><br>
               <% end %>
-            </form>
+              <%= form.submit "Rent" %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -39,7 +40,7 @@
         <script>
           <!-- sets initial map view: lat,long, zoom position -->
           var map = L.map('map').setView([42.3238896, -72.652456], 14);
-          
+
           <!-- adds a style to  map chosen from online source; maptiler: raster tiles, license  -->  
           L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=4BB14XvJg8kIpx8YLSXf', {
             maxZoom: 20,
@@ -48,8 +49,8 @@
 
           <!-- adds submarine icon to marker-->
           var leafletIcon = L.icon({
-            iconUrl: '/Submarine.png',
-            iconSize: [33,33],
+            iconUrl: '/submarine3.png',
+            iconSize: [43,36],
           })
           
           <!-- grabs lng, lat from station data to create marker --> 
@@ -60,16 +61,8 @@
 
         </script>
       </div>
-
-
-      <div id = "rentnow" class = "rentnowbutton" >
-        <button type="button"> Rent Now</button>
-      </div>
-    
-    
     </section>
   </div>
 
 </body>
-<%# number of bikes docked %>
 </html>

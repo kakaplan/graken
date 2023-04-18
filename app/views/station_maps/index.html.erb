@@ -17,20 +17,22 @@
   <div class = "page-section section-inner flexbox vertical stretch" >
     <section>
       <!-- creates collapsable for every station-->
-      <div class = "station-side-bar" >
-        <% for station in @stations do %>
-          <button type="button" class="collapsible" ><%=station.name%></button>
-          <div class="content">
-            <p> Station status: <%=station.status%></p>
-            <p> Total Bikes: <%=station.docked_bikes.count%></p>
-            <!-- creates bike rental form-->
-            <%= form_with url: "/rentals/new", method: :get do |form|%>
-              <%= form.collection_radio_buttons :rental, station.docked_bikes, :id, :theme_name, html_options: { class: 'form-control' } do |b| %>
-                <%= b.label { b.radio_button + " " + b.text } %><br>
+      <div class = "station-side-bar"  >
+        <%= form_with url: "/rentals/new", method: :get do |form|%>
+          <% for station in @stations do %>
+            <button type="button" class="collapsible" ><%=station.name%></button>
+            <div class="content">
+              <p> Station status: <%=station.status%></p>
+              <p> Total Bikes: <%=station.docked_bikes.count%></p>
+              <!-- creates option for every bike-->
+              <% for bike in  station.docked_bikes do %>
+                <%= form.radio_button :rental, bike.id %>
+                <%= form.label "rental_#{bike.id}", bike.theme_name %>
+                <br />
               <% end %>
-              <%= form.submit "Rent" %>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
+          <%= form.submit "Rent" %>
         <% end %>
       </div>
 

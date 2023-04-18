@@ -107,7 +107,8 @@ li a:hover {
   padding: 0 20px;
   display: none;
   overflow: hidden;
-  background-color:var(--white-color);
+  background-color:var(--transp-gray-color);
+
 }
 
 .rentnowbutton{

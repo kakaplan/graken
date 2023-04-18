@@ -11,15 +11,23 @@ class RentalsController < ApplicationController
     end
 
     def new 
-        if current_user.current_card.present?
-            @rental = Rental.new(start_time: Time.now, 
-            user_id: current_user.id,
-            card_id: current_user.current_card.id,
-            bike_id: Bike.find_by(id: params[:rental]).identifier,
-            start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
+        puts("rental controller")
+        puts(params)
+        puts(params[:rental].present?)
+        if params[:rental].present?
+            if current_user.current_card.present?
+                @rental = Rental.new(start_time: Time.now, 
+                user_id: current_user.id,
+                card_id: current_user.current_card.id,
+                bike_id: Bike.find_by(id: params[:rental]).identifier,
+                start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
+            else
+                flash[:alert] = "Please setup the payment method before renting!"
+                redirect_to new_card_path
+            end
         else
-            flash[:alert] = "Please setup the payment method before renting!"
-            redirect_to new_card_path
+            redirect_to station_maps_index_path
+            flash[:alert] = "Please select a bike"
         end
 
     end

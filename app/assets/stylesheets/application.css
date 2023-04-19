@@ -135,11 +135,12 @@ li a:hover {
   position: relative;
   background-color: var(--darkblue-color);
   color:var(--white-color);
-  padding: 10px 10px 9px 10px;
+  padding: 14px 16px;
+  border-right: none;
 }
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: relative;
   width: 100%;
   overflow: auto;
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);

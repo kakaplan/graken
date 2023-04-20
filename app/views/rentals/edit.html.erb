@@ -1,7 +1,7 @@
 <div class="rental edit">
     <%bike = Bike.find_by(identifier: @rental.bike_id) %>
-    <h2> You are renting <%=bike.theme_name%> </h2>
-    <h3 id="timer">placeholder for timer</h3>
+    <h2> You have checked out <%=bike.theme_name%> </h2>
+    <h3 id="timer"></h3>
     <script>
         var seconds = 0;
         var minutes = 0;
@@ -11,7 +11,16 @@
 
         function increment() {
             seconds ++;
-            timer_text.innerHTML = seconds;
+            if (seconds > 59) {
+                seconds = 0;
+                minutes ++;
+            }
+            if (minutes > 59) {
+                minutes = 0;
+                hours ++;
+            }
+
+            timer_text.innerHTML = hours + ": " + minutes + " : " + seconds;
         }
 
     </script>

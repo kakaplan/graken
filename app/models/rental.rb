@@ -11,5 +11,20 @@ class Rental < ApplicationRecord
     belongs_to :card_rented, class_name: :Card, primary_key: :id, foreign_key: :card_id
     belongs_to :start_station, class_name: :Station, primary_key: :identifier, foreign_key: :start_station_id
     belongs_to :end_station, class_name: :Station, primary_key: :identifier, foreign_key: :end_station_id, optional: true
+
+    def date_created
+        datetime = created_at.in_time_zone("Eastern Time (US & Canada)")
+        datetime.strftime("%B %d, %Y")
+    end
+
+    def start
+        datetime = start_time.in_time_zone("Eastern Time (US & Canada)")
+        datetime.strftime("%I:%M %p ET")
+    end
+
+    def end
+        datetime = end_time.in_time_zone("Eastern Time (US & Canada)")
+        datetime.strftime("%I:%M %p ET")
+    end
 end
 

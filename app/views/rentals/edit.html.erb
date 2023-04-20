@@ -1,6 +1,22 @@
-<%= link_to('back to stations',rentals_path, :class => 'back-link' )%>
 <div class="rental edit">
-    <h2>Return Rental Form</h2>
+    <%bike = Bike.find_by(identifier: @rental.bike_id) %>
+    <h2> You are renting <%=bike.theme_name%> </h2>
+    <h3 id="timer">placeholder for timer</h3>
+    <script>
+        var seconds = 0;
+        var minutes = 0;
+        var hours = 0;
+        var timer_text = document.getElementById("timer");
+        setInterval('increment()', 1000);
+
+        function increment() {
+            seconds ++;
+            timer_text.innerHTML = seconds;
+        }
+
+    </script>
+
+    <h2>End your rental by entering the following information</h2>
     
         <%=form_for(@rental) do |f| %>
         

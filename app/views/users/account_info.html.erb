@@ -39,7 +39,6 @@
                 <td>xxxx xxxx xxxx <%=@card.card_number[-4..-1]%>
                 </tr>
                 <td><%= link_to "Edit Card Info", edit_card_path(@card)%></td>
-                <td><%= link_to "Back", users_path%><td>
             <%else %>
               <p>You do not have a card on file. Please add a new card. </p>
               <%= link_to "Add card", new_card_path(@card)%>

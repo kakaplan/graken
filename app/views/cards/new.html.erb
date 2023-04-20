@@ -2,6 +2,8 @@
 <%= link_to('back to payment',cards_path, :class => 'back-link' )%>
 <div class="cards new">
     <h2>Payment</h2>
+    <p>Please note that this card will be charged for all rentals. </p>
+    <p>We have a flat fee of $5 per bike rented. </p>
     <% if Card.find_by(user_id: current_user.id).present? %>
         <div>Please edit or view your card from here:</div>
         <h2><%= link_to "Edit", edit_card_path(@card)%></h2>

@@ -3,10 +3,18 @@
     <h2> You are biking with <%=bike.theme_name%>! </h2>
     <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
     <script>
+        /* TODO
+        * this is getting the seconds in a weird way (depending on the text)
+        * this is masking the weird seconds by hiding the display the time is updated
+        * causes an unnecessary if statement in increment()
+        */
+
         var timer_text = document.getElementById("timer");
+        timer_text.style.display = "none";
         var seconds = timer_text.innerHTML;
         
         setInterval('increment()', 1000);
+
 
         function increment() {
             seconds ++;
@@ -16,6 +24,10 @@
             hours_text = Math.floor(minutes_text / 60);
 
             timer_text.innerHTML = hours_text + ": " + minutes_text + " : " + seconds_text;
+            
+            if (timer_text.style.display == "none"){
+                timer_text.style.display = "block";
+            }
         }
 
     </script>

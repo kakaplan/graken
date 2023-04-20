@@ -1,6 +1,47 @@
-<%= link_to('back to stations',rentals_path, :class => 'back-link' )%>
 <div class="rental edit">
-    <h2>Return Rental Form</h2>
+    <%bike = Bike.find_by(identifier: @rental.bike_id) %>
+    <h2> You are biking with <%=bike.theme_name%>! </h2>
+    <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
+    <script>
+        /* TODO
+        * this is getting the seconds in a weird way (depending on the text)
+        * this is masking the weird seconds by hiding the display the time is updated
+        * causes an unnecessary if statement in increment()
+        */
+
+        var timer_text = document.getElementById("timer");
+        timer_text.style.display = "none";
+        var seconds = timer_text.innerHTML;
+        
+        setInterval('increment()', 1000);
+
+
+        function increment() {
+            seconds ++;
+
+            seconds_text = seconds % 60;
+            minutes_text = Math.floor(seconds/60) % 60;
+            hours_text = Math.floor(minutes_text / 60);
+
+            if (seconds_text < 10){ seconds_text = '0' + seconds_text; }
+            if (minutes_text < 10) { minutes_text = '0' + minutes_text; }
+            if (hours_text < 10) { hours_text = '0' + hours_text; }
+
+            timer_text.innerHTML = hours_text + ": " + minutes_text + " : " + seconds_text;
+            
+            if (timer_text.style.display == "none"){
+                timer_text.style.display = "block";
+            }
+        }
+
+    </script>
+
+    <button id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
+
+    
+
+    <div id = 'end-rental-form'>
+        <h2>End your rental by entering the following information</h2>
     
         <%=form_for(@rental) do |f| %>
         
@@ -21,9 +62,18 @@
             <div class="form-buttons">
                 <%= f.submit("Return") %>
             </div>
+        <% end %>
+    </div>
 
+    <script>
+        var endRentalForm = document.getElementById("end-rental-form");
+        var endRentalButton = document.getElementById("ready-to-return-button");
+        endRentalForm.style.display = "none";
+        function showEndRentalForm() {
+            endRentalForm.style.display = "inline";
+            endRentalButton.style.display = "none";
+        }
 
-        
-    <% end %>
+    </script>
 </div>
 

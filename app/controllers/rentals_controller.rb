@@ -11,16 +11,17 @@ class RentalsController < ApplicationController
         @bikes = Bike.where(current_station_id: @station.identifier)
     end
 
-    def new 
+    def new
         if params[:rental].present?
             #if user does not have a card on file they are redirected to set up the payment first
             if current_user.current_card.present?
+                bike = Bike.find_by(id: params[:rental])
                 #otherwise a new rental is created using the information that has already been collected
                 @rental = Rental.new(start_time: Time.now, 
                 user_id: current_user.id,
                 card_id: current_user.current_card.id,
-                bike_id: Bike.find_by(id: params[:rental]).identifier,
-                start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
+                bike_id: bike.identifier,
+                start_station_id: bike.current_station.identifier)
             else
                 flash[:alert] = "Please setup the payment method before renting!"
                 redirect_to new_card_path

@@ -37,14 +37,13 @@
             </tr>
 
             </table>
-
-            <div class="form-buttons">
-                <%= f.submit("Unlock " + bike_name) %>
-            </div>
-
-
         
+            <div class="form-buttons">
+                <%= f.submit("Unlock " + Bike.find_by(identifier: @rental.bike_id).theme_name) %>
+            </div>
     <% end %>
+
+    
 </div>
 
                

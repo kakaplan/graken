@@ -2,6 +2,8 @@
 <%= link_to('back to payment',cards_path, :class => 'back-link' )%>
 <div class="cards new">
     <h2>Payment</h2>
+    <p>Please note that this card will be charged for all rentals. </p>
+    <p>We have a flat fee of $5 per bike rented. </p>
     <% if Card.find_by(user_id: current_user.id).present? %>
         <div>Please edit or view your card from here:</div>
         <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
@@ -11,8 +13,7 @@
         
             <table summary="Fill the form fields">
             <tr>
-                    <th>User ID</th>
-                    <td><%= f.text_field(:user_id, readonly: "readonly") %></td> 
+                    <td><%= f.hidden_field(:user_id, readonly: "readonly") %></td> 
                 </tr>
                 <tr>
                     <th>Name on card</th>
@@ -25,7 +26,7 @@
                 </tr>
                 
                 <tr>
-                    <th>CV</th>
+                    <th>CVV</th>
                     <td><%= f.text_field(:cv, placeholder: "000") %></td> 
                 </tr>
                 
@@ -40,13 +41,13 @@
                 </tr>
 
                 <tr>
-                    <th>Date created</th>
-                    <td><%= f.text_field(:created_at, readonly: "readonly") %></td> 
+                    
+                    <td><%= f.hidden_field(:created_at, readonly: "readonly") %></td> 
                 </tr>
 
                 <tr>
-                    <th>Date updated</th>
-                    <td><%= f.text_field(:updated_at, readonly: "readonly") %></td> 
+                    
+                    <td><%= f.hidden_field(:updated_at, readonly: "readonly") %></td> 
                 </tr>
 
             </table>

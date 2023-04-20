@@ -20,11 +20,12 @@
                 <li><%= link_to "Updates", updates_path%></li>
 
                 <% if user_signed_in? %>
-                    <div class="dropdown" style="float:right">
-                        <li><%= current_user.firstname %><br> <%= current_user.lastname %></li>
+                    <div style="float:right" class="dropdown">
+                        <%= current_user.firstname %> <%= current_user.lastname %>
                         <div class="dropdown-content">
-                            <li><%= link_to "Account", users_path%></li>
-                            <li><%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }%></li>
+                            <%= link_to "Account", users_path%>
+                            <br>
+                            <%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }%>
                         </div>
                     </div>
                 <% else %>

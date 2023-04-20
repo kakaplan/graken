@@ -8,9 +8,9 @@
         <% Rental.all.each do |rental| %>
           
           <%if rental.user_id == current_user.id && rental.status == "open"%>
-            <button type="button" class="collapsible" ><%=rental.start_time%></button>
+            <button type="button" class="collapsible" ><%=rental.date_created%></button>
             <div class="content">
-              <p> Start time: <%=rental.start_time%></p>
+              <p> Start time: <%=rental.start%></p>
               <p> Start station: <%=Station.find_by(identifier: rental.start_station_id).theme_name%></p>
               <p> Bike: <%=Bike.find_by(identifier: rental.bike_id).theme_name%></p>
               <p> <%=link_to("End rental", edit_rental_path(rental))%> </p>

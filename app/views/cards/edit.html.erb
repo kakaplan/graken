@@ -6,8 +6,7 @@
             <% # url: card_path(@card), method: 'patch' %>
             <table summary="Fill the form fields">
             <tr>
-                    <th>User ID</th>
-                    <td><%= f.text_field(:user_id, readonly: "readonly") %></td> 
+                    <td><%= f.hidden_field(:user_id, readonly: "readonly") %></td> 
                 </tr>
                 <tr>
                     <th>Name on card</th>
@@ -20,7 +19,7 @@
                 </tr>
                 
                 <tr>
-                    <th>CV</th>
+                    <th>CVV</th>
                     <td><%= f.text_field(:cv, placeholder: "000") %></td> 
                 </tr>
                 
@@ -35,13 +34,11 @@
                 </tr>
 
                 <tr>
-                    <th>Date created</th>
-                    <td><%= f.text_field(:created_at, readonly: "readonly") %></td> 
+                    <td><%= f.hidden_field(:created_at, readonly: "readonly") %></td> 
                 </tr>
 
                 <tr>
-                    <th>Date updated</th>
-                    <td><%= f.text_field(:updated_at, readonly: "readonly") %></td> 
+                    <td><%= f.hidden_field(:updated_at, readonly: "readonly") %></td> 
                 </tr>
 
             </table>

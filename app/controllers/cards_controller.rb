@@ -52,7 +52,7 @@ class CardsController < ApplicationController
     def update
         @card = Card.find_by(user_id: current_user.id)
         if @card.update(params.require(:card).permit(:card_number, :cv,:name,:exp_year,:exp_month,:created_at,:updated_at,:user_id))
-            redirect_to card_path(@card)
+            redirect_to users_path
         else
             if @card.errors.any?
                 flash[:alert] = @card.errors.full_messages

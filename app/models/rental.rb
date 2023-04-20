@@ -17,5 +17,20 @@ class Rental < ApplicationRecord
         rental_len = current_time - start_time
         rental_len.to_i
     end
+
+    def date_created
+        datetime = created_at.in_time_zone("Eastern Time (US & Canada)")
+        datetime.strftime("%B %d, %Y")
+    end
+
+    def start
+        datetime = start_time.in_time_zone("Eastern Time (US & Canada)")
+        datetime.strftime("%I:%M %p ET")
+    end
+
+    def end
+        datetime = end_time.in_time_zone("Eastern Time (US & Canada)")
+        datetime.strftime("%I:%M %p ET")
+    end
 end
 

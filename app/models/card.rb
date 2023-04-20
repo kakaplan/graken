@@ -9,8 +9,8 @@ class Card < ApplicationRecord
 
     
     validates :cv, presence: true,
-                   length: {within: 3..4},
-                   numericality: true
+                   length: {within: 3..4, 
+                            message: "is too short and should not start with 0"}
 
 
     

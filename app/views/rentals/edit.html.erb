@@ -1,31 +1,31 @@
 <div class="rental edit">
     <%bike = Bike.find_by(identifier: @rental.bike_id) %>
-    <h2> You have checked out <%=bike.theme_name%> </h2>
-    <h3 id="timer"></h3>
+    <h2> You are biking with <%=bike.theme_name%>! </h2>
+    <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
     <script>
-        var seconds = 0;
-        var minutes = 0;
-        var hours = 0;
         var timer_text = document.getElementById("timer");
+        var seconds = timer_text.innerHTML;
+        
         setInterval('increment()', 1000);
 
         function increment() {
             seconds ++;
-            if (seconds > 59) {
-                seconds = 0;
-                minutes ++;
-            }
-            if (minutes > 59) {
-                minutes = 0;
-                hours ++;
-            }
 
-            timer_text.innerHTML = hours + ": " + minutes + " : " + seconds;
+            seconds_text = seconds % 60;
+            minutes_text = Math.floor(seconds/60) % 60;
+            hours_text = Math.floor(minutes_text / 60);
+
+            timer_text.innerHTML = hours_text + ": " + minutes_text + " : " + seconds_text;
         }
 
     </script>
 
-    <h2>End your rental by entering the following information</h2>
+    <button onclick = showEndRentalForm()>Ready to return?</button>
+
+    
+
+    <div id = 'end-rental-form'>
+        <h2>End your rental by entering the following information</h2>
     
         <%=form_for(@rental) do |f| %>
         
@@ -46,9 +46,16 @@
             <div class="form-buttons">
                 <%= f.submit("Return") %>
             </div>
+        <% end %>
+    </div>
 
+    <script>
+        var endRentalForm = document.getElementById("end-rental-form");
+        endRentalForm.style.display = "none";
+        function showEndRentalForm() {
+            endRentalForm.style.display = "inline";
+        }
 
-        
-    <% end %>
+    </script>
 </div>
 

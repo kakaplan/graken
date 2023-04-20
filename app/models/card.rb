@@ -10,10 +10,7 @@ class Card < ApplicationRecord
     
     validates :cv, presence: true,
                    length: {within: 3..4, 
-                            message: "is too short and should not start with 0"},
-                   format: {with: /[0-9]+/,
-                                message: "Contact number can only contain the digits 0-9"
-                                }
+                            message: "is too short and should not start with 0"}
 
 
     

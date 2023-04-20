@@ -23,6 +23,10 @@
             minutes_text = Math.floor(seconds/60) % 60;
             hours_text = Math.floor(minutes_text / 60);
 
+            if (seconds_text < 10){ seconds_text = '0' + seconds_text; }
+            if (minutes_text < 10) { minutes_text = '0' + minutes_text; }
+            if (hours_text < 10) { hours_text = '0' + hours_text; }
+
             timer_text.innerHTML = hours_text + ": " + minutes_text + " : " + seconds_text;
             
             if (timer_text.style.display == "none"){
@@ -32,7 +36,7 @@
 
     </script>
 
-    <button onclick = showEndRentalForm()>Ready to return?</button>
+    <button id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
 
     
 
@@ -63,9 +67,11 @@
 
     <script>
         var endRentalForm = document.getElementById("end-rental-form");
+        var endRentalButton = document.getElementById("ready-to-return-button");
         endRentalForm.style.display = "none";
         function showEndRentalForm() {
             endRentalForm.style.display = "inline";
+            endRentalButton.style.display = "none";
         }
 
     </script>

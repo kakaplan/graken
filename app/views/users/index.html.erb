@@ -1,18 +1,17 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Your Account 
-    </div>  
-    <div class="flexbox vertical stretch">
-      <% if user_signed_in? %>
-      <div> Welcome <%= current_user.firstname %> <%= current_user.lastname %>! </div> 
-      <p><%= link_to('Account Info', users_account_info_path) %></p>
-      <p><%= link_to('Current Rental', users_current_rental_path) %></p>
-      <p><%= link_to('Bike History', users_bike_history_path) %></p>
-      <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
-      <% else %>
-        There are no users signed in. 
-      <% end %>
-    </div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+
+
+
+
+<body>
+  <% if user_signed_in? %>
+    <%= render "layouts/usersidebar"%>
+    
+  <% else %>
+    There are no users signed in. 
+  <% end %>
+
+
+</body>
+</html>

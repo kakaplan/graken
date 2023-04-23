@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+</head>
+
+
+<body>
+  <div class= "container-fluid"> <!--moves side bar to left-->
+    <%# <div class=" row wrapper" > </div> %>
+    <div> <!--shortens width/length of sidebar-->
+        <div class = "rounded" style = "background-color:var( --blue-color); width: 200%;">
+          <a class = "text-decoration-none text-white">
+            <span> My Profile </span>
+          </a> 
+          <hr>
+
+          <div class="flexbox vertical ">
+            
+            <ul class= "nav nav-pills flex-column mt-4  text-white">
+              <li class = "nav-item">
+                <a href= "<%=users_account_info_path%>" class= "nav-link text-white" >Account Info</a>
+              </li>
+
+              <li class = "nav-item"> 
+                <a href= "<%=users_current_rental_path%>" class= "nav-link text-white">Current Rental</a>
+              </li>
+
+              <li class = "nav-item"> 
+                <a href= "<%=users_bike_history_path %>" class= "nav-link text-white">Bike History</a>
+              </li>
+
+            </ul>
+            <hr>
+              <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+            
+          </div>
+          
+        </div>
+    </div>
+
+  </div>
+ 
+
+
+</body>
+</html>

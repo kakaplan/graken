@@ -1,56 +1,70 @@
-<div class="page-section flexbox vertical stretch">
-  <% if user_signed_in? %>
+<!DOCTYPE html>
+<head>
+</head>
 
-    <div class="section-inner flexbox vertical stretch"> 
-      <div class="section-title">
-          Welcome <%= current_user.firstname %> <%= current_user.lastname %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<html>
+
+  <div class="page-section flexbox horizontal stretch justify-space-between" style = "max-width: 55em; margin-left: -380px" >
+    <%# <section> %>
+      <% if user_signed_in? %>
+      <div class = "left-section">   <!-- move to left  -->
+        <%= render "layouts/usersidebar"%>
       </div>
 
-      <div class = "user-information" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 50%; margin: 5px; text-align: left">
-            <h2>User Information</h2>
-            <table summary="user information">
-            <tr>
-              <th>First Name:</th>
-              <td><%= current_user.firstname %></td>
-            </tr>
-            <tr>
-              <th>Last Name:</th>
-                <td><%= current_user.lastname%></td>
-            </tr>
-            <tr>
-              <th>Email:</th>
-                <td><%= current_user.email%></td>
-            </tr>
-            <td><%= link_to('Edit User Info', edit_user_registration_path) %></td>
-            </table>
-      </div>
+        <div class="section-inner flexbox vertical stretch right-section" > <!-- move to right  -->
+          <div class="section-title">
+              Welcome <%= current_user.firstname %> <%= current_user.lastname %>
+          </div>
 
-      <div class = "user-information" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 50%; margin: 5px; text-align: left">
-        <h2>Card Information</h2>
-          <table summary="Payment information">
-            <% if Card.find_by(user_id: current_user.id).present? %>
-              <% @card = Card.find_by(user_id: current_user.id) %>
+          <div class = "user-information" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 170%; margin: 5px; text-align: left">
+                <h2>User Information</h2>
+                <table summary="user information">
                 <tr>
-                <th>Name on Card: </th>
-                <td><%=@card.name%>
+                  <th>First Name:</th>
+                  <td><%= current_user.firstname %></td>
                 </tr>
                 <tr>
-                <th>Card Number: </th>
-                <td>xxxx xxxx xxxx <%=@card.card_number[-4..-1]%>
+                  <th>Last Name:</th>
+                    <td><%= current_user.lastname%></td>
                 </tr>
-                <td><%= link_to "Edit Card Info", edit_card_path(@card)%></td>
-            <%else %>
-              <p>You do not have a card on file. Please add a new card. </p>
-              <%= link_to "Add card", new_card_path(@card)%>
-            <% end %>
-          </table>
-      </div>
+                <tr>
+                  <th>Email:</th>
+                    <td><%= current_user.email%></td>
+                </tr>
+                <td><%= link_to('Edit User Info', edit_user_registration_path) %></td>
+                </table>
+          </div>
 
-    </div>
-    
-  <%else %>
-    <p>Please Sign Up or Sign In to view the content.</p>
-    <h2><%= link_to "Sign up or Sign In", user_session_path%>
-  <% end %>
+          <div class = "user-information" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 170%; margin: 5px; text-align: left">
+            <h2>Card Information</h2>
+              <table summary="Payment information">
+                <% if Card.find_by(user_id: current_user.id).present? %>
+                  <% @card = Card.find_by(user_id: current_user.id) %>
+                    <tr>
+                    <th>Name on Card: </th>
+                    <td><%=@card.name%>
+                    </tr>
+                    <tr>
+                    <th>Card Number: </th>
+                    <td>xxxx xxxx xxxx <%=@card.card_number[-4..-1]%>
+                    </tr>
+                    <td><%= link_to "Edit Card Info", edit_card_path(@card)%></td>
+                <%else %>
+                  <p>You do not have a card on file. Please add a new card. </p>
+                  <%= link_to "Add card", new_card_path(@card)%>
+                <% end %>
+              </table>
+          </div>
 
-</div>
+        </div>
+        
+      <%else %>
+        <p>Please Sign Up or Sign In to view the content.</p>
+        <h2><%= link_to "Sign up or Sign In", user_session_path%>
+      <% end %>
+    <%# </section> %>
+  </div>
+
+</html>

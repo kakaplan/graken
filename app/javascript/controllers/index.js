@@ -28,12 +28,12 @@ for (i = 0; i < coll.length; i++) {
 }
 
 
-//checkboxes: allows for only 1 check
-$(document).ready(function(){
-    $('input:checkbox').click(function() {
-        $('input:checkbox').not(this).prop('checked', false);
-    })
-});
+// //checkboxes: allows for only 1 check
+// $(document).ready(function(){
+//     $('input:checkbox').click(function() {
+//         $('input:checkbox').not(this).prop('checked', false);
+//     })
+// });
 
 
 // bike.identifierthemename

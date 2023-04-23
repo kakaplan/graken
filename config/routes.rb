@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     end
   end
     
-  get '/users' => 'users#index'
+  get '/users' => 'users#account_info'
   get '/users/account_info'
   get '/users/current_rental'
   get '/users/bike_history'

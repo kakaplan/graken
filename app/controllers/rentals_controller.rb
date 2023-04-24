@@ -64,6 +64,12 @@ class RentalsController < ApplicationController
         else
             flash[:alert] = ["You do not have a rental in progress!"]
         end
+        
+        # if the rental has already ended, can't edit
+        if @rental.end_time
+            flash[:alert] = ["This rental has already ended."]
+            redirect_to(root_path)
+        end
          
     end
 

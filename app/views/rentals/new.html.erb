@@ -38,8 +38,8 @@
 
             </table>
         
-            <div class="form-buttons">
-                <%= f.submit("Unlock " + Bike.find_by(identifier: @rental.bike_id).theme_name) %>
+            <div>
+                <%= f.submit("Unlock " + Bike.find_by(identifier: @rental.bike_id).theme_name, class:"form-buttons") %>
             </div>
     <% end %>
 

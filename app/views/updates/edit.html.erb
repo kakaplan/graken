@@ -4,8 +4,8 @@
   <%= form_for(@update) do |f| %>
     <%= render(partial: 'form', locals: {f: f}) %>
 
-    <div class="form-buttons">
-      <%= f.submit("Save Changes") %>
+    <div>
+      <%= f.submit("Save Changes", class:"form-buttons") %>
     </div>
 
   <% end %>

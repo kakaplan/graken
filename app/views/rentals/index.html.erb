@@ -1,9 +1,9 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
+<div class="page-section flexbox vertical">
+  <div class="section-inner flexbox vertical">
     <div class="section-title">
       Please view the Stations and click the rent link to rent a bike
     </div>
-    <div class="flexbox vertical stretch">
+    <div class="flexbox vertical">
         <% if @stations.present? %>
         We currently have the following stations available:
         <%= render(partial: "rentals/station", collection: @stations, as: :station) %>

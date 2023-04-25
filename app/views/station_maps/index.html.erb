@@ -61,6 +61,44 @@
             .bindPopup(' <%=station.theme_name%> :<br> <%=station.name%>')
           <% end %>
 
+          <!-- grabs lng, lat for user location seen as marker --> 
+
+          if(!navigator.geolocation) {
+            console.log("Your browser doesn't support geolocation feature!")
+          } 
+          else {
+          setInterval(() => {
+            navigator.geolocation.getCurrentPosition(getPosition)}, 5000);
+          }
+
+          var user_marker, user_circle;
+
+          function getPosition(position){
+              // console.log(position)
+              var lat = position.coords.latitude
+              var long = position.coords.longitude
+              var accuracy = position.coords.accuracy
+
+              if(user_marker) {
+                  map.removeLayer(user_marker)
+              }
+
+              if(user_circle) {
+                  map.removeLayer(user_circle)
+              }
+
+              user_marker = L.marker([lat, long])
+              user_circle = L.circle([lat, long], {radius: accuracy})
+
+              var featureGroup = L.featureGroup([user_marker, user_circle]).addTo(map)
+              .bindPopup('This is you!')
+
+              console.log("Your coordinate is: Lat: "+ lat +" Long: "+ long+ " Accuracy: "+ accuracy)
+          }
+
+
+
+
         </script>
       </div>
     </section>

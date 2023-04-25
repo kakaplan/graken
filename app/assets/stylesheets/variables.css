@@ -1,6 +1,7 @@
 :root {
-  --title-font:             'Rubik', 'Arial';
-  --body-font:              'Rubik', 'Arial';
+  --title-font:             'Railway', 'Arial';
+  --body-font:              'Railway', 'Arial';
+  src: url('/assets/fonts/Raleway/static/Raleway-Regular.ttf');
 
   --black-color:            #160919;
   --light-black-color:      #2E2230;

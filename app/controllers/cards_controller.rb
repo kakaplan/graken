@@ -29,7 +29,7 @@ class CardsController < ApplicationController
         @card = Card.create(params.require(:card).permit(:card_number, :cv,:name,:exp_year,:exp_month,:created_at,:updated_at,:user_id))
         if @card.save
             flash[:notice] = "Payment Successfully Processed"
-            redirect_to cards_path
+            redirect_to rentals_path
         else
             if @card.errors.any?
                 flash[:alert] = @card.errors.full_messages

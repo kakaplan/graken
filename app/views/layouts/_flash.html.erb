@@ -1,5 +1,7 @@
+
 <% if flash[:alert].present? %>
-    <div id="flash-alert" style="border: 1px solid red; color: red; padding: 10px;">
+    <div id="flash-alert" class='flash-div'>
+    <button id='alertButton' class='closeButton'> &#215; </button>
     <% if flash[:alert].class == Array %>
         <% for alert in flash[:alert] %>
             <p><%= alert %> </p>
@@ -11,13 +13,40 @@
 <% end %>
 
 <% if flash[:notice].present? %>
-    <% if flash[:notice].class == Array %>
-        <% for notice in flash[:notice] %>
-            <p><%= notice %> </p>
+    <div id="flash-notice" class='flash-div'>
+        <button id='noticeButton' class='closeButton'> &#215; </button>
+        <% if flash[:notice].class == Array %>
+            <% for notice in flash[:notice] %>
+                <p><%= notice %> </p>
+            <% end %>
+        <% else %>
+            <p><%= flash[:notice] %> </p>
         <% end %>
-    <% else %>
-        <p><%= flash[:notice] %> </p>
-    <% end %>
+    </div>
 <% end %>
+
+<script>
+//TODO: clean this up with ajax
+alertButton = document.getElementById('alertButton');
+if (alertButton != null) {
+    alertButton.onclick = function() {
+        close('flash-alert');
+    }
+}
+
+
+noticeButton = document.getElementById('noticeButton');
+if (noticeButton != null) {
+    noticeButton.onclick = function() {
+        close('flash-notice');
+    } 
+}
+
+function close(id) {
+    element = document.getElementById(id);
+    element.style.display = "none";
+}
+</script>
+
 
 

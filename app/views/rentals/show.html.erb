@@ -18,7 +18,9 @@
   </table>
 
   <h3>Bikes docked here</h3>
-  <table summary="Docked bikes">
+  <br>
+  <br>
+  <div class="flexbox vertical">
   <%= render(partial: "rentals/bike", collection: @bikes, as: :bike) %>
-  </table>
+  </div>
 </div>

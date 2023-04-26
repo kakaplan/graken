@@ -5,8 +5,8 @@
         <% # url: bikes_path, method: 'post' %>
         <%= render(partial: 'form', locals: {f: f}) %>
 
-        <div class = "form-buttons">
-            <%= f.submit("Save New Bike") %>
+        <div>
+            <%= f.submit("Save New Bike", class:"form-buttons") %>
         </div>
     <% end %>
 

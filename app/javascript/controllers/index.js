@@ -27,6 +27,9 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+
+//checkboxes: allows for only 1 check
+
 // bike.identifierthemename
 
 

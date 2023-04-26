@@ -78,3 +78,35 @@
     </script>
 </div>
 
+<div id="rental-fish">
+    <div id="rental-fish-animation">
+        <img src=<%=image_path('fish.png') %> alt="Fish Doodle" width=150px id="rental-fish-pic">
+    </div>
+</div>
+
+<%#TODO: code this properly (since it should probably only be happening on load)%>
+
+<script>
+    var fishDiv = document.getElementById("rental-fish-animation");
+
+    var xPos = -150;
+    yPos = 0;
+
+    var t = 0;
+    setInterval(frame, 4);
+    t ++;
+
+    function frame() {
+        if (xPos >= window.innerWidth) {
+            t = 0;
+            xPos = -150;
+        }
+        xPos ++;
+        yPos = 20*Math.sin(t*0.02);
+        t ++;
+
+        fishDiv.style.left = xPos + 'px';
+        fishDiv.style.top = yPos + 'px';
+    }
+
+</script>

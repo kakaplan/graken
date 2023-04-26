@@ -247,3 +247,12 @@ li a:hover {
   position: absolute;
 }
 
+#update-table {
+}
+.update-header {
+  text-align: left;
+  vertical-align: top;
+}
+.update-field {
+  float: left;
+}

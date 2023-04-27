@@ -1,6 +1,7 @@
-<div class="rental edit">
+<div class="payment">
     <%bike = Bike.find_by(identifier: @rental.bike_id) %>
     <h2> You are biking with <%=bike.theme_name%>! </h2>
+    <br>
     <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
     <script>
         /* TODO
@@ -35,14 +36,15 @@
         }
 
     </script>
+    <br>
 
-    <button id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
+    <button class="form-buttons" id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
 
     
 
     <div id = 'end-rental-form'>
-        <h2>End your rental by entering the following information</h2>
-    
+        <p>Pick a drop off station to end the ride.</p>
+        <br>
         <%=form_for(@rental) do |f| %>
         
             <table summary="Fill the form fields">
@@ -53,14 +55,14 @@
             </tr>
 
             <tr>
-                <th>End Time</th>
-                <td><%= f.text_field(:end_time, readonly: "readonly") %></td> 
+                <th></th>
+                <td><%= f.hidden_field(:end_time, readonly: "readonly") %></td> 
             </tr>
 
             </table>
-
-            <div class="form-buttons">
-                <%= f.submit("Return") %>
+            <br>
+            <div>
+                <%= f.submit("Return", class:"form-buttons") %>
             </div>
         <% end %>
     </div>
@@ -77,3 +79,35 @@
     </script>
 </div>
 
+<div id="rental-fish">
+    <div id="rental-fish-animation">
+        <img src=<%=image_path('fish.png') %> alt="Fish Doodle" width=150px id="rental-fish-pic">
+    </div>
+</div>
+
+<%#TODO: code this properly (since it should probably only be happening on load)%>
+
+<script>
+    var fishDiv = document.getElementById("rental-fish-animation");
+
+    var xPos = -150;
+    yPos = 0;
+
+    var t = 0;
+    setInterval(frame, 4);
+    t ++;
+
+    function frame() {
+        if (xPos >= window.innerWidth) {
+            t = 0;
+            xPos = -150;
+        }
+        xPos ++;
+        yPos = 20*Math.sin(t*0.02);
+        t ++;
+
+        fishDiv.style.left = xPos + 'px';
+        fishDiv.style.top = yPos + 'px';
+    }
+
+</script>

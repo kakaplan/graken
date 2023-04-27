@@ -7,8 +7,8 @@
     <p>Are you sure you want to permanently delete this bike?</p>
     <p><%= @bike.identifier %> : <%= @bike.theme_name %></p>
 
-    <div class="form-buttons">
-      <%= f.submit("Delete bike") %>
+    <div>
+      <%= f.submit("Delete bike", class:"form-buttons") %>
     </div>
 
   <% end %>

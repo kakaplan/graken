@@ -21,8 +21,8 @@
         <%= form_with url: "/rentals/new", method: :get do |form|%>
           <% for station in @stations do %>
             <button type="button" class="collapsible" ><%=station.name%></button>
-            <div class="content">
-              <p> Station status: <%=station.status%></p>
+            <div class="content" style="text-align:left">
+              <p> Station Status: <%=station.status%></p>
               <p> Total Bikes: <%=station.docked_bikes.count%></p>
               <!-- creates option for every bike-->
               <% for bike in  station.docked_bikes do %>
@@ -32,7 +32,8 @@
               <% end %>
             </div>
           <% end %>
-          <%= form.submit "Rent" %>
+          <br><br>
+          <%= form.submit "Rent" , :class => 'form-buttons'%>
         <% end %>
       </div>
 

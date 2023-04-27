@@ -1,9 +1,13 @@
-<div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
-    flexbox vertical stretch">
-    <p class="left"> <%= station.theme_name %>: <%= station.name %> </p>
-      <p class="right"> Status: <%= station.status %> </p>
-    <p>--- Number of bikes available: <%= station.docked_bikes.count %> ---</p>
-    <%= link_to("Show", rental_path(station), class: 'action show') %>
-   
+<div class="record-row flexbox vertical">
+<p style="font-size:100px">&#127754;</p>
+ <strong><%= station.theme_name %></strong>
+     Location: <%= station.name %> <br>
+     Status: <%= station.status %> <br>
+    --- Bikes available: <%= station.docked_bikes.count %> ---
+
+    <%= link_to "<button class='show_rent'>View Bikes</button>".html_safe,rental_path(station) %>
+
+ 
 </div>
+
  

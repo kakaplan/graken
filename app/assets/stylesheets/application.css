@@ -271,6 +271,14 @@ li a:hover {
 .update-field {
   float: left;
 }
+
+.update-box {
+  border: 1px solid var(--lightgreen-color);
+  padding: 10px; 
+  width: 50%; 
+  margin: 5px; 
+}
+
 button, .form-buttons {
   font-family: var(--body-font);
   cursor: pointer;

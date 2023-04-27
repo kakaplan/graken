@@ -15,10 +15,9 @@
  */
 
 @font-face {
-  font-family: 'Raleway-Medium';
-  src: url('Raleway-Medium.ttf');
+  font-family: 'RedRose';
+  src: url('RedRose.ttf');
 }
-
 
  .navbar {
     background-color: var(--blue-color);

@@ -264,6 +264,13 @@ li a:hover {
   position: absolute;
 }
 
+.update-header {
+  text-align: left;
+  vertical-align: top;
+}
+.update-field {
+  float: left;
+}
 button, .form-buttons {
   font-family: var(--body-font);
   cursor: pointer;

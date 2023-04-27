@@ -9,15 +9,10 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
-
-  <div>
-    <h1 class="font-bold text-4xl">Station Map</h1>
-  </div>
-
-  <div class = "page-section section-inner flexbox vertical stretch" >
+  <div class="reduce_spacegit a">
     <section>
       <!-- creates collapsable for every station-->
-      <div class = "station-side-bar"  >
+      <div class = "station-side-bar" >
         <%= form_with url: "/rentals/new", method: :get do |form|%>
           <% for station in @stations do %>
             <button type="button" class="collapsible" ><%=station.name%></button>

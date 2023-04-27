@@ -88,15 +88,17 @@ li a:hover {
 
 
 #map{
-  width: 600px; 
-  height: 400px;
+  position: relative; 
+  width: 77.5%; 
+  height: 600px;
   /* float: right; */
 }
 .station-side-bar{
+  position: relative; 
   float: left;
   height: 600px;
   overflow: auto;
-  width: 40%;
+  width: 22.5%;
 }
 
 /* styles button used to open and close  collapsible content */

@@ -14,8 +14,16 @@
  *= require_self
  */
 
- /*Styling for the navigation bar. TODO: We should definitely change this!*/
-.navbar {
+@font-face {
+  font-family: 'BrunoAceSC';
+  src: url('BrunoAceSC-Regular.ttf');
+} 
+@font-face {
+  font-family: 'RedRose';
+  src: url('RedRose.ttf');
+}
+
+ .navbar {
     background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;
@@ -24,6 +32,15 @@
     border-width: 1px;
     border-bottom-style: solid;
     border-color: var(--white-color);
+}
+
+#header-home-link {
+  text-decoration: none; 
+  color: white;
+}
+
+#graken-header {
+  font-family: var(--title-font);
 }
 
 nav ul {
@@ -247,3 +264,7 @@ li a:hover {
   position: absolute;
 }
 
+button, .form-buttons {
+  font-family: var(--body-font);
+  cursor: pointer;
+}

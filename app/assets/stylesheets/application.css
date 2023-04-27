@@ -14,8 +14,13 @@
  *= require_self
  */
 
- /*Styling for the navigation bar. TODO: We should definitely change this!*/
-.navbar {
+@font-face {
+  font-family: 'Raleway-Medium';
+  src: url('Raleway-Medium.ttf');
+}
+
+
+ .navbar {
     background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;

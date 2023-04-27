@@ -12,5 +12,7 @@
   --blue-color:             #a9d9f9;
   --darkblue-color:         #2e7177;
   --lightgreen-color:     #9ac467;
+  --transp-lightgreen-color:     rgb(154, 196, 103, 0.3);
   --yellow-gray-color:      #f6f6f2; 
+  --darkgreen-color:     #7ea450;
 }

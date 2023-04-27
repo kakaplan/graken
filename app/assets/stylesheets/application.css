@@ -210,5 +210,28 @@ li a:hover {
   padding: 25px;
 }
 
+/* adds a box behind payments, users forms */
+.payment{
+  background-color: #e7e4e4;
+  padding: 25px;
+}
 
+.column {
+  float: left;
+  width: 20%;
+  text-align: justify;
+  padding: 12px 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.homepage_boxes{
+  background-color: var(--transp-lightgreen-color);
+  padding: 25px;
+}
 

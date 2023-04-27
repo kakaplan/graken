@@ -1,11 +1,13 @@
 <div class="record-row flexbox vertical">
 <p style="font-size:100px">&#127754;</p>
- <%= station.theme_name %>: <%= station.name %> <br>
+ <strong><%= station.theme_name %></strong>
+     Location: <%= station.name %> <br>
      Status: <%= station.status %> <br>
-    --- Number of bikes available: <%= station.docked_bikes.count %> ---
+    --- Bikes available: <%= station.docked_bikes.count %> ---
 
-    <%= link_to "<button class='show_rent'>View bikes</button>".html_safe,rental_path(station) %>
+    <%= link_to "<button class='show_rent'>View Bikes</button>".html_safe,rental_path(station) %>
 
  
 </div>
+
  

@@ -1,5 +1,5 @@
 <div class="record-row flexbox vertical">
 <p style="font-size:100px">&#128032;</p>
-     <%=bike.theme_name%> bike
+     <strong><%=bike.theme_name%> Bike </strong>
     <%= link_to "<button class='show_rent'>Rent Now</button>".html_safe,new_rental_path(:rental => bike.id) %>
 </div>

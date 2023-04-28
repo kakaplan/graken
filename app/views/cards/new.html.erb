@@ -1,9 +1,8 @@
 <div class= "payment">
    <h2 class="center">Payment</h2>
-    <% if Card.find_by(user_id: current_user.id).present? %>
-        <div>Please edit or view your card from here:</div>
+    <% if current_user.has_card? %>
+        <div>Please edit your card from here:</div>
         <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
-        <h2><%= link_to "View", card_path(@card)%></h2>
     <% else %>
         <%=form_for(@card) do |f| %>
             <table summary="Fill the form fields">

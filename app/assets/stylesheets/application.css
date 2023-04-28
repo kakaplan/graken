@@ -24,7 +24,6 @@
 }
 
 .navbar1 {
-
     background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;
@@ -126,6 +125,7 @@ li a:hover {
   display: none;
   overflow: hidden;
   background-color:var(--transp-gray-color);
+  text-align: left;
 
 }
 
@@ -200,6 +200,19 @@ li a:hover {
   font-size: 16px;
   border-radius: 12px;
 }
+.form-buttons_sidebar {
+	background: var(--blue-color);
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	text-shadow: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
 
 .form-buttons:hover {
 	background: #016ABC;
@@ -207,6 +220,12 @@ li a:hover {
 	border: 1px solid #eee;
 	border-radius: 20px;
 	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
+}
+.form-buttons_sidebar:hover {
+	background: var(--darkblue-color);
+
+	border-radius: 20px;
 	text-shadow: none;
 }
 

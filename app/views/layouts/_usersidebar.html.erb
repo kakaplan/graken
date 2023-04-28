@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+    <body>
+    <div class= "container-fluid"> <!--moves side bar to left-->
+        <%# <div class=" row wrapper" > </div> %>
+        <div> <!--shortens width/length of sidebar-->
+            <div class = "rounded" style = "background-color:var( --blue-color); width: 200%;">
+
+            <div class="flexbox vertical ">
+
+                
+                <ul class= "nav nav-pills flex-column mt-4  text-white">
+
+                <li class = "flexbox justify-space-around">
+                    <h5> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                        <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                        <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    My Profile 
+                    </h5>
+                </li>
+                <hr>
+
+                <li class = "nav-item">
+                    <a href= "<%=users_account_info_path%>" class= "nav-link text-white" >Account Info</a>
+                </li>
+
+                <li class = "nav-item"> 
+                    <a href= "<%=users_current_rental_path%>" class= "nav-link text-white">Current Rental</a>
+                </li>
+
+                <li class = "nav-item"> 
+                    <a href= "<%=users_bike_history_path %>" class= "nav-link text-white">Bike History</a>
+                </li>
+                <hr>
+
+                <li class = "flexbox justify-space-around">
+                <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+
+                </li>
+
+                </ul>
+            
+                
+            </div>
+            
+            </div>
+        </div>
+
+    </div>
+    
+
+
+    </body>
+</html>
+
+

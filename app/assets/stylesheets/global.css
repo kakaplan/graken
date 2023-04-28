@@ -61,18 +61,18 @@ p {
   **/
 }
 
-.footer1 {
+.footer {
   bottom:0;
   left:0;
   width:100%;
-  height: 172px;
+  height: 123px;
   background-color: var(--darkblue-color);
   color: var(--white-color);
   font-family: var(--body-font);
 
 }
 
-.footer1-text-left {
+.footer-text-left {
   font-size:15px;
   margin-left: 10px;
   float:left;

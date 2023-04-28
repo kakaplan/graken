@@ -1,3 +1,4 @@
+
 function CollapMenuList() {
     var coll = document.getElementsByClassName("collapsible");
     var i;
@@ -18,7 +19,7 @@ function CollapMenuList() {
   //documentready
   $(document).on('turbo:load', function(){ 
     CollapMenuList();
-    console.log("It works on each visit!");
+    // console.log("It works on each visit!");
     }
   );
   //document on turbo load

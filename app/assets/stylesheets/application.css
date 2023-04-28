@@ -23,7 +23,7 @@
   src: url('RedRose.ttf');
 }
 
- .navbar1 {
+.navbar1 {
     background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;

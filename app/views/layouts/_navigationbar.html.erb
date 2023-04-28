@@ -20,6 +20,10 @@
                 <li><%= link_to "Updates", updates_path%></li>
 
                 <% if user_signed_in? %>
+                    <% if current_user.admin %>
+                        <li><%= link_to "Edit", stations_path%></li>
+                    <%end%>
+
                     <div style="float:right" class="dropdown">
                         <%= current_user.firstname %> <%= current_user.lastname %>
                         <div class="dropdown-content">

@@ -264,11 +264,34 @@ li a:hover {
   height: 200px;
   position: relative;
 }
+/* adds a box behind payments, users forms */
+.payment{
+  background-color: #e7e4e4;
+  padding: 25px;
+}
+
+.column {
+  float: left;
+  width: 20%;
+  text-align: justify;
+  padding: 12px 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 #rental-fish-animation {
   width: 150px;
   height: 150px;
   position: absolute;
+}
+.homepage_boxes{
+  background-color: var(--transp-lightgreen-color);
+  padding: 25px;
 }
 
 .update-header {
@@ -281,4 +304,15 @@ li a:hover {
 button, .form-buttons {
   font-family: var(--body-font);
   cursor: pointer;
+}
+.update-box{
+  border: 1px solid var(--lightgreen-color);  
+  width: 50%; 
+  margin: 5px; 
+  padding: 10px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--transp-lightgreen-color);
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- Page answering frequently asked questions -->
 
 <head>
     <style>
@@ -22,21 +21,36 @@
 </head>
 
 <body>
+    <div class="image">
+    <img src=<%=image_path('FAQ.jpg') %> alt="Octupus with a speech bubble saying "You have questions we have answers. " height= 300px/> 
 
-    <h1>FAQ</h1>
+    <h2 class="text_over_image_right"> FAQs <h2>
+    </div>
+    <div class="row flexbox horizontal justify-space-between">
+    <div>
+        <img src=<%=image_path('side_reef2.jpg') %> alt="Beige dock with blue ocean" height=400px/> 
+    </div>
+    <div class="flexbox vertical center faq">
+        <div class="homepage_boxes">
+            <b>Q: Where do Graken bikes have service?</b> <br>
+            A: Graken bikes are stationed throughout the Nipmuc Notch area, in 
+        several of the surrounding cities.<br>
+        </div>
 
-    <dl> 
-        <br><dt><b>Q: Where do Graken bikes have service?</b></dt>
-        <dd>A: Graken bikes are stationed throughout the Nipmuc Notch area, in 
-        several of the surrounding cities. Check out our Station Map to locate stations near you.</dd><br>
+        <div class="homepage_boxes">
+            <<b>Q: Can I check out a bike without a Graken account?</b><br>
+            A: No, you must create a Graken account to check out a bike. Visit our How To 
+            page for more information about renting bikes.<br>
+        </div>
 
-        <dt><b>Q: Can I check out a bike without a Graken account?</b></dt>
-        <dd>A: No, you must create a Graken account to check out a bike. Visit our Home 
-        page for more information about renting bikes.</dd><br>
-
-        <dt><b>Q: Can I check out more than one bike at a time?</b></dt>
-        <dd>A: Yes, you can check out as many bikes as you need. We charge a flat fee of $5 per rental.</dd>
-    </dl>
-
+        <div class="homepage_boxes">
+            <b>Q: Can I check out more than one bike at a time?</b><br>
+            A: No, you can only check out one bike at a time per Graken account.
+        </div>
+    </div>
+    <div>
+        <img src=<%=image_path('side_reef1.jpg') %> alt="Beige dock with blue ocean" height=400px/> 
+    </div>
+    </div>
 </body>
 </html>

@@ -101,7 +101,13 @@ a.menu:hover {
 .image { 
   position: relative; 
   width: 100%; /* for IE 6 */
-  top: -90px;
+  top: -50px;
+}
+
+.image_left { 
+  position: relative; 
+  width: 100%; /* for IE 6 */
+  right: 0px;
 }
 
 .text_over_image { 
@@ -111,3 +117,26 @@ a.menu:hover {
   left: 180px; 
   width: 50%; 
 }
+
+.text_over_image_right { 
+  position: absolute; 
+  top: 340px; 
+  text-align: center;
+  width: 50%; 
+  right: 350px;
+  
+}
+
+.text_over_image_left { 
+  position: absolute; 
+  top: 190px; 
+  text-align: center;
+  width: 50%; 
+  left: -50px;
+  
+}
+
+.top {
+  top: 30px;
+}
+

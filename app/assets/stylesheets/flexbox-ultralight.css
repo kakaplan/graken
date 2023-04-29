@@ -123,3 +123,11 @@
   -ms-justify-content: space-around;
   justify-content: space-around;
 }
+
+.faq {
+  width: 500px;
+}
+
+.about_us {
+  width: 72%;
+}

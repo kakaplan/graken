@@ -20,7 +20,7 @@ class RentalsController < ApplicationController
                     card_id: current_user.current_card.id,
                     bike_id: @bike.identifier,
                     start_station_id: @bike.current_station.identifier)
-                @start_station = Station.find_by(identifier: params[:start_station_id])
+                @start_station = Station.find_by(identifier: @rental.start_station_id)
             else
                 flash[:alert] = "Please setup the payment method before renting!"
                 redirect_to new_card_path
@@ -59,7 +59,7 @@ class RentalsController < ApplicationController
         #allows user to return the bike
         if Rental.find_by_id(params[:id]).present?
             @rental = Rental.find_by_id(params[:id])
-            @bike = Bike.find_by(identifier: params[:bike_id]);  
+            @bike = Bike.find_by(identifier: @rental.bike_id);  
         else
             flash[:alert] = ["You do not have a rental in progress!"]
         end

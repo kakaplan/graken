@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<!-- Form to submit for rental -->
+
+    <table summary="Fill in the form fields">
+        <tr>
+            
+            <td><%= f.hidden_field(:user_id, readonly: "readonly") %></td> 
+        </tr>
+
+        <tr>
+            
+            <td><%= f.hidden_field(:bike_id, readonly: "readonly") %></td> 
+        </tr>
+
+        <tr>
+            
+            <td><%= f.hidden_field(:card_id, readonly: "readonly") %></td> 
+        </tr>
+
+        <tr>
+            
+            <td><%= f.hidden_field(:start_station_id, readonly: "readonly") %></td> 
+        </tr>
+
+        <tr>
+            
+            <td><%= f.hidden_field(:start_time, readonly: "readonly") %></td> 
+        </tr>
+
+    </table>
+
+</html>

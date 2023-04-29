@@ -1,81 +1,118 @@
-<div class="payment">
-    <%bike = Bike.find_by(identifier: @rental.bike_id) %>
-    <h2> You are biking with <%=bike.theme_name%>! </h2>
-    <br>
-    <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
-    <script>
-        /* TODO
-        * this is getting the seconds in a weird way (depending on the text)
-        * this is masking the weird seconds by hiding the display the time is updated
-        * causes an unnecessary if statement in increment()
-        */
+<!DOCTYPE html>
+<html>
+<!-- Displays timer and end rental option for bikes -->
 
-        var timer_text = document.getElementById("timer");
-        timer_text.style.display = "none";
-        var seconds = timer_text.innerHTML;
-        
-        setInterval('increment()', 1000);
-
-
-        function increment() {
-            seconds ++;
-
-            seconds_text = seconds % 60;
-            minutes_text = Math.floor(seconds/60) % 60;
-            hours_text = Math.floor(minutes_text / 60);
-
-            if (seconds_text < 10){ seconds_text = '0' + seconds_text; }
-            if (minutes_text < 10) { minutes_text = '0' + minutes_text; }
-            if (hours_text < 10) { hours_text = '0' + hours_text; }
-
-            timer_text.innerHTML = hours_text + ": " + minutes_text + " : " + seconds_text;
-            
-            if (timer_text.style.display == "none"){
-                timer_text.style.display = "block";
-            }
-        }
-
-    </script>
-    <br>
-
-    <button class="form-buttons" id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
-
-    
-
-    <div id = 'end-rental-form'>
-        <p>Pick a drop off station to end the ride.</p>
+    <div class="payment">
+        <%bike = Bike.find_by(identifier: @rental.bike_id) %>
+        <h2> You are biking with <%=bike.theme_name%>! </h2>
         <br>
-        <%=form_for(@rental) do |f| %>
+        <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
+        <script>
+            /* TODO
+            * this is getting the seconds in a weird way (depending on the text)
+            * this is masking the weird seconds by hiding the display the time is updated
+            * causes an unnecessary if statement in increment()
+            */
+
+            var timer_text = document.getElementById("timer");
+            timer_text.style.display = "none";
+            var seconds = timer_text.innerHTML;
+            
+            setInterval('increment()', 1000);
+
+
+            function increment() {
+                seconds ++;
+
+                seconds_text = seconds % 60;
+                minutes_text = Math.floor(seconds/60) % 60;
+                hours_text = Math.floor(minutes_text / 60);
+
+                if (seconds_text < 10){ seconds_text = '0' + seconds_text; }
+                if (minutes_text < 10) { minutes_text = '0' + minutes_text; }
+                if (hours_text < 10) { hours_text = '0' + hours_text; }
+
+                timer_text.innerHTML = hours_text + ": " + minutes_text + " : " + seconds_text;
+                
+                if (timer_text.style.display == "none"){
+                    timer_text.style.display = "block";
+                }
+            }
+
+        </script>
+        <br>
+
+        <button class="form-buttons" id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
+
         
-            <table summary="Fill the form fields">
 
-            <tr>
-                <th>End Station</th>
-                <td><%= f.collection_select(:end_station_id, Station.all, :id, :name, prompt: true) %></td> 
-            </tr>
-
-            <tr>
-                <th></th>
-                <td><%= f.hidden_field(:end_time, readonly: "readonly") %></td> 
-            </tr>
-
-            </table>
+        <div id = 'end-rental-form'>
+            <p>Pick a drop off station to end the ride.</p>
             <br>
-            <div>
-                <%= f.submit("Return", class:"form-buttons") %>
-            </div>
-        <% end %>
+            <%=form_for(@rental) do |f| %>
+            
+                <table summary="Fill the form fields">
+
+                <tr>
+                    <th>End Station</th>
+                    <td><%= f.collection_select(:end_station_id, Station.all, :id, :name, prompt: true) %></td> 
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <td><%= f.hidden_field(:end_time, readonly: "readonly") %></td> 
+                </tr>
+
+                </table>
+                <br>
+                <div>
+                    <%= f.submit("Return", class:"form-buttons") %>
+                </div>
+            <% end %>
+        </div>
+
+        <script>
+            var endRentalForm = document.getElementById("end-rental-form");
+            var endRentalButton = document.getElementById("ready-to-return-button");
+            endRentalForm.style.display = "none";
+            function showEndRentalForm() {
+                endRentalForm.style.display = "inline";
+                endRentalButton.style.display = "none";
+            }
+
+        </script>
     </div>
 
+    <div id="rental-fish">
+        <div id="rental-fish-animation">
+            <img src=<%=image_path('fish.png') %> alt="Fish Doodle" width=150px id="rental-fish-pic">
+        </div>
+    </div>
+
+
     <script>
-        var endRentalForm = document.getElementById("end-rental-form");
-        var endRentalButton = document.getElementById("ready-to-return-button");
-        endRentalForm.style.display = "none";
-        function showEndRentalForm() {
-            endRentalForm.style.display = "inline";
-            endRentalButton.style.display = "none";
+        var fishDiv = document.getElementById("rental-fish-animation");
+
+        var xPos = -150;
+        yPos = 0;
+
+        var t = 0;
+        setInterval(frame, 4);
+        t ++;
+
+        function frame() {
+            if (xPos >= window.innerWidth) {
+                t = 0;
+                xPos = -150;
+            }
+            xPos ++;
+            yPos = 20*Math.sin(t*0.02);
+            t ++;
+
+            fishDiv.style.left = xPos + 'px';
+            fishDiv.style.top = yPos + 'px';
         }
 
     </script>
-</div>
 
+</html>

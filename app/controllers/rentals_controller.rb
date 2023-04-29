@@ -14,11 +14,13 @@ class RentalsController < ApplicationController
     def new
         if params[:rental].present?
             if current_user.current_card.present?
+                @bike = Bike.find_by_id(params[:rental])
                 @rental = Rental.new(start_time: Time.now, 
                     user_id: current_user.id,
                     card_id: current_user.current_card.id,
-                    bike_id: Bike.find_by(id: params[:rental]).identifier,
-                    start_station_id: Bike.find_by(id: params[:rental]).current_station.identifier)
+                    bike_id: @bike.identifier,
+                    start_station_id: @bike.current_station.identifier)
+                @start_station = Station.find_by(identifier: @rental.start_station_id)
             else
                 flash[:alert] = "Please setup the payment method before renting!"
                 redirect_to new_card_path
@@ -30,6 +32,12 @@ class RentalsController < ApplicationController
     end
 
     def create
+        # attempt card charge
+        if not current_user.current_card.charge(5)
+            flash[:alert] = "Payment did not go through. Review your card details and try again."
+            redirect_to edit_card_path(current_user.current_card) and return
+        end
+
         #creates the rental
         @rental = Rental.new(params.require(:rental).permit(:start_time,
                                                             :user_id,
@@ -56,7 +64,8 @@ class RentalsController < ApplicationController
     def edit 
         #allows user to return the bike
         if Rental.find_by_id(params[:id]).present?
-            @rental = Rental.find_by_id(params[:id])  
+            @rental = Rental.find_by_id(params[:id])
+            @bike = Bike.find_by(identifier: @rental.bike_id);  
         else
             flash[:alert] = ["You do not have a rental in progress!"]
         end

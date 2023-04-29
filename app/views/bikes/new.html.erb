@@ -1,13 +1,19 @@
-<div class="bikes new">
-    <h2>Add a New Bike</h2>
+<!DOCTYPE html>
+<html>
+<!-- Allows user to add a new bike -->
 
-    <%= form_for(@bike) do |f| %>
-        <% # url: bikes_path, method: 'post' %>
-        <%= render(partial: 'form', locals: {f: f}) %>
+    <div class="bikes new">
+        <h2>Add a New Bike</h2>
 
-        <div>
-            <%= f.submit("Save New Bike", class:"form-buttons") %>
-        </div>
-    <% end %>
+        <%= form_for(@bike) do |f| %>
+            <% # url: bikes_path, method: 'post' %>
+            <%= render(partial: 'form', locals: {f: f}) %>
 
-</div>
+            <div>
+                <%= f.submit("Save New Bike", class:"form-buttons") %>
+            </div>
+        <% end %>
+
+    </div>
+
+</html>

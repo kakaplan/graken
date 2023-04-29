@@ -1,26 +1,27 @@
-<div class="rental show">
-  <p><%= link_to('Back to Station List', rentals_path) %></p>
-  <h2>Showing <%=@station.theme_name%>: <%=@station.address%></h2>
+<!DOCTYPE html>
+<html>
+<!-- Shows specific rental -->
 
-  <div class="actions">
+  <div class="rental show">
+    <div>
+      <h2>Station: <%=@station.theme_name%></h2>
+    </div>
 
+    <div class="actions">
+
+    </div>
+    <div class="flexbox center stretch">
+      <table summary="station detail view" style="margin-left:auto;margin-right:auto; text-align:left">
+          <td><%= @station.address %></td>
+      </table>
+    </div>
+
+    <br>
+    <br>
+    <div class="station-bike-space">
+    <%= render(partial: "rentals/bike", collection: @bikes, as: :bike) %>
+    </div>
+    <p><%= link_to('Back to Station List', rentals_path) %></p>
   </div>
 
-  <table summary="station detail view">
-    <tr>
-        <th>Address</th>
-        <td><%= @station.address %></td>
-    </tr>
-    <tr>
-        <th>Status</th>
-        <td><%= @station.status%></td>
-    </tr>
-  </table>
-
-  <h3>Bikes docked here</h3>
-  <br>
-  <br>
-  <div class="flexbox vertical">
-  <%= render(partial: "rentals/bike", collection: @bikes, as: :bike) %>
-  </div>
-</div>
+</html>

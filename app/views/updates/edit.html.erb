@@ -1,12 +1,18 @@
-<div class="bikes update">
-  <h2>Edit Update</h2>
+<!DOCTYPE html>
+<html>
+<!-- User can update an update, haha -->
 
-  <%= form_for(@update) do |f| %>
-    <%= render(partial: 'form', locals: {f: f}) %>
+  <div class="bikes update">
+    <h2>Edit Update</h2>
 
-    <div>
-      <%= f.submit("Save Changes", class:"form-buttons") %>
-    </div>
+    <%= form_for(@update) do |f| %>
+      <%= render(partial: 'form', locals: {f: f}) %>
 
-  <% end %>
-</div>
+      <div>
+        <%= f.submit("Save Changes", class:"form-buttons") %>
+      </div>
+
+    <% end %>
+  </div>
+
+</html>

@@ -1,14 +1,20 @@
-<div class="updates delete">
-  <h2>Delete update</h2>
+<!DOCTYPE html>
+<html>
+<!-- User can delete an update -->
 
-  <%= form_for(@update, method: 'delete') do |f| %>
+  <div class="updates delete">
+    <h2>Delete update</h2>
 
-    <p>Are you sure you want to permanently delete this update?</p>
-    <p><%= @update.title%></p>
+    <%= form_for(@update, method: 'delete') do |f| %>
 
-    <div>
-      <%= f.submit("Delete update", class:"form-buttons") %>
-    </div>
+      <p>Are you sure you want to permanently delete this update?</p>
+      <p><%= @update.title%></p>
 
-  <% end %>
-</div>
+      <div>
+        <%= f.submit("Delete update", class:"form-buttons") %>
+      </div>
+
+    <% end %>
+  </div>
+
+</html>

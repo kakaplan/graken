@@ -1,5 +1,11 @@
-<div class="record-row flexbox vertical">
-<p style="font-size:100px">&#128032;</p>
-     <%=bike.theme_name%> bike
-    <%= link_to "<button class='show_rent'>Rent Now</button>".html_safe,new_rental_path(:rental => bike.id) %>
-</div>
+<!DOCTYPE html>
+<html>
+<!-- Individual rent now option for a bike -->
+
+    <div class="record-row flexbox vertical">
+    <p style="font-size:100px">&#128032;</p>
+        <strong><%=bike.theme_name%></strong>
+        <%= link_to "<button class='show_rent'>Rent Now</button>".html_safe,new_rental_path(:rental => bike.id) %>
+    </div>
+
+</html>

@@ -27,7 +27,7 @@
                         <%= current_user.firstname %> <%= current_user.lastname %>
                         <div class="dropdown-content">
                             <%= link_to "Account", users_path%>
-                            <br>
+                            
                             <%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }%>
                         </div>
                     </div>

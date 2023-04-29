@@ -7,5 +7,9 @@ class User < ApplicationRecord
   has_one :current_card, class_name: :Card, primary_key: :id, foreign_key: :user_id
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-        
+  
+
+  def has_card?
+    Card.find_by(user_id: id).present?
+  end
 end

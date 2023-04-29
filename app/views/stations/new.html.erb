@@ -1,14 +1,16 @@
-<div class="stations new">
-  <h2>Add a New Station</h2>
+<div class="payment">
+  <div class="stations new">
+    <h2>Add a New Station</h2>
 
-  <%= form_for(@station) do |f| %>
-    <% # url: stations_path, method: 'post' %>
+    <%= form_for(@station) do |f| %>
+      <% # url: stations_path, method: 'post' %>
 
-    <%= render(partial: 'form', locals: {f: f}) %>
+      <%= render(partial: 'form', locals: {f: f}) %>
 
-    <div>
-      <%= f.submit("Save New Station", class:"form-buttons") %>
-    </div>
+      <div>
+        <%= f.submit("Save New Station", class:"form-buttons") %>
+      </div>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,15 +1,20 @@
-<table summary="Bike form fields">
-    <tr>
-        <th> Identifier </th>
-        <td><%= f.text_field(:identifier) %></td>
-    </tr>
+<!DOCTYPE html>
+<html>
+    <div class="payment">
 
-    <tr>
-        <th>Current Station Identifier</th>
-        <td><%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %></td>
-    </tr>
-    <tr>
-        <th>Theme Name</th>
-        <td><%=f.text_field(:theme_name) %></td>
-    </tr>
-</table>
+        <div class="field">
+            <%= f.label "Identifier"%><br />
+            <%= f.text_field(:identifier) %>
+        </div>
+
+        <div class="field">
+            <%= f.label "Current Station Identifier"%><br />
+            <%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %>
+        </div>
+
+        <div class="field">
+            <%= f.label "Theme Name"%><br />
+            <%=f.text_field(:theme_name) %>
+        </div>
+    </div>
+</html>

@@ -234,6 +234,7 @@ li a:hover {
 }
 
 .flash-div {
+  z-index: 100;
   padding: 10px;
   width: 300px;
 }

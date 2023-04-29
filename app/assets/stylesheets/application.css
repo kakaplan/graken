@@ -235,3 +235,14 @@ li a:hover {
   padding: 25px;
 }
 
+.update-box{
+  border: 1px solid var(--lightgreen-color);  
+  width: 50%; 
+  margin: 5px; 
+  padding: 10px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--transp-lightgreen-color);
+}

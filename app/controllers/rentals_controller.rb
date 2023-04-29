@@ -30,6 +30,12 @@ class RentalsController < ApplicationController
     end
 
     def create
+        # attempt card charge
+        if not current_user.current_card.charge(5)
+            flash[:alert] = "Payment did not go through. Review your card details and try again."
+            redirect_to edit_card_path(current_user.current_card) and return
+        end
+
         #creates the rental
         @rental = Rental.new(params.require(:rental).permit(:start_time,
                                                             :user_id,

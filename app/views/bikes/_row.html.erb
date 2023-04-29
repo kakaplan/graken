@@ -1,7 +1,12 @@
-<div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
-    flexbox vertical stretch">
-    <%=bike.identifier_with_name %>    
-    <%= link_to("show", bike_path(bike)) %>
-    <%= link_to("edit", edit_bike_path(bike)) %>
-    <%=link_to("delete", delete_bike_path(bike))%></td>
-</div>
+<!DOCTYPE html>
+<html>
+<!-- Display a bike -->
+
+    <div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
+        flexbox vertical stretch">
+        <%=bike.identifier_with_name %>    
+        <%= link_to("show", bike_path(bike)) %>
+        <%= link_to("edit", edit_bike_path(bike)) %>
+        <%=link_to("delete", delete_bike_path(bike))%></td>
+    </div>
+</html>

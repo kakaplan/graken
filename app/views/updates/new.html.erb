@@ -1,12 +1,18 @@
-<div class="updates new">
-    <h2>New Update</h2>
+<!DOCTYPE html>
+<html>
+<!-- Adds/saves new update -->
 
-    <%= form_for(@update) do |f| %>
-        <%= render(partial: 'form', locals: {f: f}) %>
+    <div class="updates new">
+        <h2>New Update</h2>
 
-        <div>
-            <%= f.submit("Save New Update", class:"form-buttons") %>
-        </div>
-    <% end %>
+        <%= form_for(@update) do |f| %>
+            <%= render(partial: 'form', locals: {f: f}) %>
 
-</div>
+            <div>
+                <%= f.submit("Save New Update", class:"form-buttons") %>
+            </div>
+        <% end %>
+
+    </div>
+
+</html>

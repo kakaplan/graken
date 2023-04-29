@@ -1,14 +1,20 @@
-<div class="stations edit">
-  <h2>Edit station</h2>
+<!DOCTYPE html>
+<html>
+<!-- Allows edit of a station -->
 
-  <%= form_for(@station) do |f| %>
-    <% # url: station_path(@station), method: 'patch' %>
+  <div class="stations edit">
+    <h2>Edit station</h2>
 
-    <%= render(partial: 'form', locals: {f: f}) %>
+    <%= form_for(@station) do |f| %>
+      <% # url: station_path(@station), method: 'patch' %>
 
-    <div>
-      <%= f.submit("Save Changes", class:"form-buttons") %>
-    </div>
+      <%= render(partial: 'form', locals: {f: f}) %>
 
-  <% end %>
-</div>
+      <div>
+        <%= f.submit("Save Changes", class:"form-buttons") %>
+      </div>
+
+    <% end %>
+  </div>
+
+</html>

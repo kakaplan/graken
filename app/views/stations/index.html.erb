@@ -1,18 +1,24 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Stations
+<!DOCTYPE html>
+<html>
+<!-- Station edits home page -->
+
+  <div class="page-section flexbox vertical stretch">
+    <div class="section-inner flexbox vertical stretch">
+      <div class="section-title">
+        Stations
+      </div>
+      <%= link_to("Add new station", new_station_path, class: 'action new') %>  
+      <div class="flexbox vertical stretch">
+          <% if @stations.present? %>
+          We currently have the following stations available:
+          <%= render(partial: "stations/row", collection: @stations, as: :station) %>
+          <% else %>
+          <div class="empty">
+              There are currently no stations or bikes found.
+          </div>
+          <% end %>
+      </div>
     </div>
-    <%= link_to("Add new station", new_station_path, class: 'action new') %>  
-    <div class="flexbox vertical stretch">
-        <% if @stations.present? %>
-        We currently have the following stations available:
-        <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-        <% else %>
-        <div class="empty">
-            There are currently no stations or bikes found.
-        </div>
-        <% end %>
-    </div>
-	</div>
-</div>
+  </div>
+
+</html>

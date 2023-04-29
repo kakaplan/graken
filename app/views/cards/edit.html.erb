@@ -1,20 +1,26 @@
-<div class="payment">
-    <h2>Edit Payment</h2>
-    <% if Card.find_by(user_id: current_user.id).present? %>
-        <%=form_for(@card) do |f| %>
+<!DOCTYPE html>
+<html>
+<!-- Allows user to edit payment/card information -->
 
-            <%= render(partial: 'form', locals: {f: f}) %>
+    <div class="payment">
+        <h2>Edit Payment</h2>
+        <% if Card.find_by(user_id: current_user.id).present? %>
+            <%=form_for(@card) do |f| %>
 
-            <div>
-                <%= f.submit("Update Card", class: "form-buttons") %>
-            </div>
+                <%= render(partial: 'form', locals: {f: f}) %>
+
+                <div>
+                    <%= f.submit("Update Card", class: "form-buttons") %>
+                </div>
+            <% end %>
+
+        <%else %>
+            <p>You do not have a card on file. Please add a new card. </p>
+            <h2><%= link_to "Add card", new_card_path(@card)%></h2>
         <% end %>
 
-    <%else %>
-        <p>You do not have a card on file. Please add a new card. </p>
-        <h2><%= link_to "Add card", new_card_path(@card)%></h2>
-    <% end %>
+    </div>
 
-</div>
+</html>
 
                

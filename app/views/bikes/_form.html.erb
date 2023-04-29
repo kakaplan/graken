@@ -1,15 +1,20 @@
-<table summary="Bike form fields">
-    <tr>
-        <th> Identifier </th>
-        <td><%= f.text_field(:identifier) %></td>
-    </tr>
+<!DOCTYPE html>
+<html>
+<!-- Form for user to edit the fields of a bike -->
 
-    <tr>
-        <th>Current Station Identifier</th>
-        <td><%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %></td>
-    </tr>
-    <tr>
-        <th>Theme Name</th>
-        <td><%=f.text_field(:theme_name) %></td>
-    </tr>
-</table>
+    <table summary="Bike form fields">
+        <tr>
+            <th> Identifier </th>
+            <td><%= f.text_field(:identifier) %></td>
+        </tr>
+
+        <tr>
+            <th>Current Station Identifier</th>
+            <td><%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %></td>
+        </tr>
+        <tr>
+            <th>Theme Name</th>
+            <td><%=f.text_field(:theme_name) %></td>
+        </tr>
+    </table>
+</html>

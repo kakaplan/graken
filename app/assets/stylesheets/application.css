@@ -215,6 +215,28 @@ li a:hover {
 	text-shadow: none;
 }
 
+.form-buttons_sidebar {
+	background: var(--blue-color);
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	text-shadow: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.form-buttons_sidebar:hover {
+	background: #016ABC;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	text-shadow: none;
+}
+
 .input{
   width: 100%;
   padding: 12px 20px;

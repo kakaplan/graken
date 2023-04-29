@@ -1,5 +1,6 @@
 <div class="payment">
-    <h2> You are biking with <%=@bike.theme_name%>! </h2>
+    <%bike = Bike.find_by(identifier: @rental.bike_id) %>
+    <h2> You are biking with <%=bike.theme_name%>! </h2>
     <br>
     <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
     <script>

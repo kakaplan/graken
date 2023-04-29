@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <%# <link rel="stylesheet" type="text/css" href="application.css" >
+    <link rel="stylesheet" type="text/css" href="global.css" >
+    <link rel="stylesheet" type="text/css" href="flexbox-ultralight.css" > %>
+<html>
+<!-- Home/welcome page for GrakenBike -->
+
+<div id='text-container' class = "page-section section-inner flexbox vertical stretch">
+<article>
+    
+    <div class="image">
+      <img src=<%=image_path('bubbles.gif') %> alt="Floating bubbes" height= 300px/>  
+      <img src=<%=image_path('octupus_bicycle.jpg') %> alt="Octopus riding a bike" width=70% />
+      
+      <h5 class="text_over_image">You have places to go.
+      <br>
+      We have the fun, eco-friendly transportation you need.</h5>
+      <img src=<%=image_path('bubbles.gif') %> alt="Floating bubbes" height= 300px/>  
+      
+    </div>
+
+    <h3>
+        Welcome to GrakenBike. Our fleet of e-bikes is housed in GrakenBike stations all over Nipmuc Notch, awaiting your adventures.
+    </h3>
+    <br><br>
+    
+    <div class="flexbox horizontal justify-space-between">
+    <a style= "text-decoration:none; color:var(--darkteal-color)" href= <%=station_maps_index_path%> class="column homepage_boxes">
+        <div> 
+            <br>
+            <h3 class="center"> <img src=<%=image_path('station.PNG') %> alt="Beige dock with blue ocean" width=70%/> </h3>
+            <h3 class="center">   Find a station</h3>
+            <p>
+            Use our to locate a station near you and check if bikes are available.
+            </p>
+            
+        </div>
+        </a>
+        <a style= "text-decoration:none; color:var(--darkteal-color)" href= <%=rentals_path%> class="column homepage_boxes">
+        <div> 
+            <h3 class="center"> <img src=<%=image_path('rent_bike.PNG') %> alt="Beige dock with blue ocean" width=70%/> </h3>
+            <h3 class="center">Rent a bike</h3>
+            <p>
+            Make a GrakenBike account and add a credit card. Then you're all set to rent! Select a bike, then navigate to 
+            to select your current station and chosen ride.
+            </p> 
+        </div>
+        </a>
+
+        <div class="column homepage_boxes">
+            <h3 class="center"> <img src=<%=image_path('explore.PNG') %> alt="Under the sea picture" width=80%/> </h3>
+            <h3 class="center">Explore Nipmuc Notch</h3>
+            <p>
+            Ride your GrakenBike e-bike all over the valley!
+            </p>
+        </div>
+
+        <a style= "text-decoration:none; color:var(--darkteal-color)" href= <%=users_current_rental_path%> class="column homepage_boxes">
+        <div> 
+        <h3 class="center"> <img src=<%=image_path('return_bike.PNG') %> alt="Beige dock with blue ocean" width=70%/> </h3>
+            <h3 class="center">Return your bike</h3>
+            <p>
+            Once you're done with your ride, return your bike to any of our stations and end your rental on our website.
+            </p>
+        </div>
+        </a>
+    </div>
+
+
+    
+</article>
+</div>
+</html>

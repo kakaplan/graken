@@ -50,6 +50,17 @@
   background: var(--dark-white-color);
 }
 
+.record-row2 {
+  padding: 0.5em 1.25em 0.5em 1.25em; 
+  font-size: 0.85em; 
+  line-height: 1.75em;
+  text-align: center;
+  border: solid black;
+  background-color: #c2d8eb;
+  width: 400px;
+  align-self: center;
+  margin: auto;
+}
 
 /***********************************/
 /*         Responsiveness          */

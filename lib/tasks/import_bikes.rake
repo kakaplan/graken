@@ -11,9 +11,6 @@ namespace :import_bikes do
       b = Bike.new
       b.identifier = row["identifier"]
       b.current_station_id = row["current_station_identifier"]
-      b.status = row["status"]
-      b.battery = row["battery"]
-      b.mileage = row["mileage"]
       b.theme_name = row["theme_name"]
       b.save
     end

@@ -13,25 +13,12 @@ Rails.application.routes.draw do
       get :delete 
     end
   end
-  
-  # get 'updates/new'
-  # get 'updates/create'
-  # get 'updates/update'
-  # get 'updates/edit'
-  # get 'updates/destroy'
-  # get 'updates/index'
-  # get 'updates/show'
+
   resources :updates do
     member do
       get :delete
     end
   end
-
-  # get 'cards/index'
-  # get 'cards/new'
-  # get 'cardss/edit'
-  # get 'cards/show'
-  # get 'cardss/delete'
 
   devise_for :users
 
@@ -46,8 +33,13 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-    
-  get '/users' => 'users#index'
+  
+  # static pages
+  get '/faq' => 'about#faq'
+  get '/about' => 'about#about'
+  get '/home' => 'about#home'
+
+  get '/users' => 'users#account_info'
   get '/users/account_info'
   get '/users/current_rental'
   get '/users/bike_history'
@@ -57,8 +49,8 @@ Rails.application.routes.draw do
   get '/bikes' => 'bikes#index'
   get '/faq' => 'faq#index'
   get '/about' => 'about#index'
-  #root to: 'stations#index'
-  root to: 'home#index'
+
+  root to: 'about#home'
 end
 
 

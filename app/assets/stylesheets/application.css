@@ -23,7 +23,7 @@
   src: url('RedRose.ttf');
 }
 
- .navbar {
+ .navbar1 {
     background-color: var(--blue-color);
     padding-top: 35px;
     padding-left: 35px;
@@ -162,15 +162,18 @@ li a:hover {
   position: relative;
   background-color: var(--darkblue-color);
   color:var(--white-color);
-  padding: 14px 16px;
+  padding: 14px 16px 14px;
   border-right: none;
+  border-radius: 15px ;
 }
+
 .dropdown-content {
   display: none;
-  position: relative;
-  width: 100%;
+  position: absolute;
   overflow: auto;
   box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+  /* left: 0px; */
+  border-radius: 0px 0px 15px 15px;
 }
 .dropdown:hover .dropdown-content {
   display: block;
@@ -179,9 +182,12 @@ li a:hover {
 .dropdown-content a {
   display: block;
   color: #000000;
-  padding: 5px;
+  padding: 15px;
   text-decoration: none;
+  text-align: center;
+  padding: auto;
 }
+
 .dropdown-content a:hover {
   color: #FFFFFF;
   background-color: var(--darkblue-color);
@@ -211,6 +217,28 @@ li a:hover {
 	text-shadow: none;
 }
 
+.form-buttons_sidebar {
+	background: var(--blue-color);
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	text-shadow: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.form-buttons_sidebar:hover {
+	background: #016ABC;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	text-shadow: none;
+}
+
 .input{
   width: 100%;
   padding: 12px 20px;
@@ -230,6 +258,7 @@ li a:hover {
 }
 
 .flash-div {
+  z-index: 100;
   padding: 10px;
   width: 300px;
 }
@@ -259,11 +288,34 @@ li a:hover {
   height: 200px;
   position: relative;
 }
+/* adds a box behind payments, users forms */
+.payment{
+  background-color: #e7e4e4;
+  padding: 25px;
+}
+
+.column {
+  float: left;
+  width: 23%;
+  text-align: justify;
+  padding: 12px 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 #rental-fish-animation {
   width: 150px;
   height: 150px;
   position: absolute;
+}
+.homepage_boxes{
+  background-color: var(--transp-lightgreen-color);
+  padding: 25px;
 }
 
 .update-header {
@@ -276,4 +328,15 @@ li a:hover {
 button, .form-buttons {
   font-family: var(--body-font);
   cursor: pointer;
+}
+.update-box{
+  border: 1px solid var(--lightgreen-color);  
+  width: 50%; 
+  margin: 5px; 
+  padding: 10px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--transp-lightgreen-color);
 }

@@ -1,60 +1,25 @@
-<div class= "payment">
-   <h2 class="center">Payment</h2>
-    <% if Card.find_by(user_id: current_user.id).present? %>
-        <div>Please edit or view your card from here:</div>
-        <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
-        <h2><%= link_to "View", card_path(@card)%></h2>
-    <% else %>
-        <%=form_for(@card) do |f| %>
-            <table summary="Fill the form fields">
-            <tr>
-                    <td><%= f.hidden_field(:user_id, readonly: "readonly", class:"input") %></td> 
-                </tr>
-                <tr>
-                    <th>Name on card</th>
-                    <td><%= f.text_field(:name, placeholder: "Firstname Lastname", class:"input") %></td> 
-                </tr>
+<!DOCTYPE html>
+<html>
+<!-- Page that lets user edit or view card information -->
 
-                <tr>
-                    <th>Card number</th>
-                    <td><%= f.text_field(:card_number, placeholder: "0000000000000000", class:"input")  %></td> 
-                </tr>
-                
-                <tr>
-                    <th>CVV</th>
-                    <td><%= f.text_field(:cv, placeholder: "000", class:"input") %></td> 
-                </tr>
-                
-                <tr>
-                    <th>Expiration Month</th>
-                    <td><%= f.select(:exp_month,["01","02","03","04","05","06","07","08","09","10","11","12"] , {selected: @card.exp_month},{ :class=>'input' }) %></td> 
-                </tr>
+    <div class= "payment">
+    <h2 class="center">Payment</h2>
+        <% if Card.find_by(user_id: current_user.id).present? %>
+            <div>Please edit or view your card from here:</div>
+            <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
+            <h2><%= link_to "View", card_path(@card)%></h2>
+        <% else %>
 
-                <tr>
-                    <th>Expiration Year</th>
-                    <td><%= f.select(:exp_year,["2023","2024","2025","2026","2027","2028","2029","2030","2031","2032","2033"], {selected: @card.exp_year}, { :class=>'input' }) %></td> 
-                </tr>
-
-                <tr>
-                    
-                    <td><%= f.hidden_field(:created_at, readonly: "readonly") %></td> 
-                </tr>
-
-                <tr>
-                    
-                    <td><%= f.hidden_field(:updated_at, readonly: "readonly") %></td> 
-                </tr>
-
-            </table>
-            <p class="small">Please note that this card will be charged for all rentals. </p>
-            <p class="small">We have a flat fee of $5 per bike rented.</p>
-            <div>
-                <%= f.submit("Process Payment" , class:"form-buttons") %>
-            </div>
-            
+            <%= form_for(@card) do |f| %>
+                <%= render(partial: 'form', locals: {f: f}) %>
+                <div>
+                    <%= f.submit("Save card" , class:"form-buttons") %>
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
-</div>
+    </div>
+
+</html>
 
 
                

@@ -1,4 +1,10 @@
 class AboutController < ApplicationController
-    def index
+    def home
+    end
+
+    def faq
+    end
+
+    def about
     end
 end

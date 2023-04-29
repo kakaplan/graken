@@ -1,11 +1,17 @@
-<table summary="Update form fields" id="update-table">
-    <tr class="update-row">
-        <th class="update-header"> Title </th>
-        <td class="update-field"><%= f.text_field(:title) %></td>
-    </tr>
+<!DOCTYPE html>
+<html>
+<!-- Form to create new update -->
 
-    <tr class="update-row">
-        <th class="update-header">Details</th>
-        <td class="update-field"><%=f.text_area(:text, size:"30x10") %></td>
-    </tr>
-</table>
+    <table summary="Update form fields" id="update-table">
+        <tr class="update-row">
+            <th class="update-header"> Title </th>
+            <td class="update-field"><%= f.text_field(:title) %></td>
+        </tr>
+
+        <tr class="update-row">
+            <th class="update-header">Details</th>
+            <td class="update-field"><%=f.text_area(:text, size:"30x10") %></td>
+        </tr>
+    </table>
+
+</html>

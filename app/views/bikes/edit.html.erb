@@ -1,14 +1,20 @@
-<div class="bikes edit">
-  <h2>Edit bike</h2>
+<!DOCTYPE html>
+<html>
+<!-- Allows a user to edit a bike-->
 
-  <%= form_for(@bike) do |f| %>
-    <% # url: bike_path(@bike), method: 'patch' %>
+  <div class="bikes edit">
+    <h2>Edit bike</h2>
 
-    <%= render(partial: 'form', locals: {f: f}) %>
+    <%= form_for(@bike) do |f| %>
+      <% # url: bike_path(@bike), method: 'patch' %>
 
-    <div>
-      <%= f.submit("Save Changes", class:"form-buttons") %>
-    </div>
+      <%= render(partial: 'form', locals: {f: f}) %>
 
-  <% end %>
-</div>
+      <div>
+        <%= f.submit("Save Changes", class:"form-buttons") %>
+      </div>
+
+    <% end %>
+  </div>
+
+</html>

@@ -1,101 +1,101 @@
-identifier,current_station_identifier,status,battery,mileage,theme_name
-3849,25,1,1,0,Sea Turtle
-3740,21,1,1,0,Anglerfish
-7946,29,1,1,0,Blue Sea Dragon
-6242,22,1,1,0,Pufferfish
-6928,22,1,1,0,Stingray
-9543,30,1,1,0,Dolphin
-2459,32,1,1,0,Beluga Whale
-4949,25,1,1,0,Starfish
-2576,25,1,1,0,Manatee
-4647,25,1,1,0,Shark
-6868,25,1,1,0,Clownfish
-4684,31,1,1,0,Octopus
-3492,33,1,1,0,Jellyfish
-3594,30,1,1,0,Seahorse
-4273,30,1,1,0,Blobfish
-6908,21,1,1,0,Cuttlefish
-3176,29,1,1,0,Eel
-7169,27,1,1,0,Elephant Seal
-7938,26,1,1,0,Giant Squid
-5995,27,1,1,0,Koi fish
-4499,31,1,1,0,Lanternshark
-6813,31,1,1,0,Lionfish
-4329,27,1,1,0,Lobster
-9473,29,1,1,0,Manta Ray
-5378,29,1,1,0,Narwhal
-7872,31,1,1,0,Needlefish
-2008,31,1,1,0,Olive Sea Snake
-2351,22,1,1,0,Orca
-4729,31,1,1,0,Oyster
-7165,21,1,1,0,Parrotfish
-1106,33,1,1,0,Piranha
-1372,24,1,1,0,Plesiosaur
-6730,26,1,1,0,Rainbow Shark
-2699,27,1,1,0,Crocodile
-1366,31,1,1,0,Swordfish
-2596,21,1,1,0,Tiger Shark
-2663,21,1,1,0,Trumpetfish
-3780,27,1,1,0,Velvet Crab
-5408,27,1,1,0,Unicornfish
-8564,27,1,1,0,Sand Shark
-7022,22,1,1,0,Seaweed
-4503,27,1,1,0,Coral
-6884,22,1,1,0,Anemone
-4757,22,1,1,0,Megalodon
-8702,22,1,1,0,Abalone
-5697,25,1,1,0,Archelon
-3434,25,1,1,0,Barnacle
-3684,28,1,1,0,Barracuda
-7522,20,1,1,0,Basilosaurus
-9824,26,1,1,0,Basking Shark
-8918,27,1,1,0,Black Sea Bass
-3924,27,1,1,0,Blue Crab
-5335,26,1,1,0,Bull Shark
-8089,25,1,1,0,Cod Fish
-1886,24,1,1,0,Conch
-2525,24,1,1,0,Dottyback
-9192,27,1,1,0,Emperor Shrimp
-5460,25,1,1,0,Harp Seal
-2253,30,1,1,0,Polar Bear
-5444,29,1,1,0,Ringed Seal
-7788,30,1,1,0,Sea Lion
-4047,26,1,1,0,Walrus
-3575,25,1,1,0,Sardine
-5741,32,1,1,0,Urchin
-9718,31,1,1,0,Viperfish
-7437,29,1,1,0,Yeti Crab
-9348,28,1,1,0,Halibut
-4292,28,1,1,0,Haddock
-2165,26,1,1,0,Kingfish
-2612,21,1,1,0,Mussel
-5068,27,1,1,0,Ribbon Worm
-1028,22,1,1,0,Oarfish
-9834,22,1,1,0,Ostracod
-2074,27,1,1,0,Porpoise
-5111,21,1,1,0,Sea Cucumber
-7907,20,1,1,0,Sponge
-3994,23,1,1,0,Tilefish
-5276,31,1,1,0,Tun Shell
-7148,23,1,1,0,Umbrella Shell
-6862,31,1,1,0,Emperor Penguin
-7865,31,1,1,0,Zebra Turkeyfish
-1144,21,1,1,0,Yellow Tang
-3998,31,1,1,0,Cat Shark
-6669,26,1,1,0,Clam
-9189,27,1,1,0,Crustacean
-7420,33,1,1,0,Flounder
-5224,33,1,1,0,Goblin Shark
-3047,28,1,1,0,Lemon Shark
-9494,21,1,1,0,Monk Seal
-7680,21,1,1,0,Marlin
-3422,27,1,1,0,Mackerel
-2209,27,1,1,0,Queen Crab
-3622,32,1,1,0,Rabbitfish
-2887,33,1,1,0,Rock Crab
-3075,29,1,1,0,Scorpionfish
-6541,29,1,1,0,Sea Dragon
-9557,30,1,1,0,Dragonet
-1758,20,1,1,0,Gray Seal
-4033,31,1,1,0,Glass Squid
-4683,31,1,1,0,Harlequin Duck
+identifier,current_station_identifier,theme_name
+3849,25,Sea Turtle
+3740,21,Anglerfish
+7946,29,Blue Sea Dragon
+6242,22,Pufferfish
+6928,22,Stingray
+9543,30,Dolphin
+2459,32,Beluga Whale
+4949,25,Starfish
+2576,25,Manatee
+4647,25,Shark
+6868,25,Clownfish
+4684,31,Octopus
+3492,33,Jellyfish
+3594,30,Seahorse
+4273,30,Blobfish
+6908,21,Cuttlefish
+3176,29,Eel
+7169,27,Elephant Seal
+7938,26,Giant Squid
+5995,27,Koi fish
+4499,31,Lanternshark
+6813,31,Lionfish
+4329,27,Lobster
+9473,29,Manta Ray
+5378,29,Narwhal
+7872,31,Needlefish
+2008,31,Olive Sea Snake
+2351,22,Orca
+4729,31,Oyster
+7165,21,Parrotfish
+1106,33,Piranha
+1372,24,Plesiosaur
+6730,26,Rainbow Shark
+2699,27,Crocodile
+1366,31,Swordfish
+2596,21,Tiger Shark
+2663,21,Trumpetfish
+3780,27,Velvet Crab
+5408,27,Unicornfish
+8564,27,Sand Shark
+7022,22,Seaweed
+4503,27,Coral
+6884,22,Anemone
+4757,22,Megalodon
+8702,22,Abalone
+5697,25,Archelon
+3434,25,Barnacle
+3684,28,Barracuda
+7522,20,Basilosaurus
+9824,26,Basking Shark
+8918,27,Black Sea Bass
+3924,27,Blue Crab
+5335,26,Bull Shark
+8089,25,Cod Fish
+1886,24,Conch
+2525,24,Dottyback
+9192,27,Emperor Shrimp
+5460,25,Harp Seal
+2253,30,Polar Bear
+5444,29,Ringed Seal
+7788,30,Sea Lion
+4047,26,Walrus
+3575,25,Sardine
+5741,32,Urchin
+9718,31,Viperfish
+7437,29,Yeti Crab
+9348,28,Halibut
+4292,28,Haddock
+2165,26,Kingfish
+2612,21,Mussel
+5068,27,Ribbon Worm
+1028,22,Oarfish
+9834,22,Ostracod
+2074,27,Porpoise
+5111,21,Sea Cucumber
+7907,20,Sponge
+3994,23,Tilefish
+5276,31,Tun Shell
+7148,23,Umbrella Shell
+6862,31,Emperor Penguin
+7865,31,Zebra Turkeyfish
+1144,21,Yellow Tang
+3998,31,Cat Shark
+6669,26,Clam
+9189,27,Crustacean
+7420,33,Flounder
+5224,33,Goblin Shark
+3047,28,Lemon Shark
+9494,21,Monk Seal
+7680,21,Marlin
+3422,27,Mackerel
+2209,27,Queen Crab
+3622,32,Rabbitfish
+2887,33,Rock Crab
+3075,29,Scorpionfish
+6541,29,Sea Dragon
+9557,30,Dragonet
+1758,20,Gray Seal
+4033,31,Glass Squid
+4683,31,Harlequin Duck

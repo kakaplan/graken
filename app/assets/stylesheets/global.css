@@ -132,8 +132,11 @@ a.menu:hover {
   top: 190px; 
   text-align: center;
   width: 50%; 
+}
+
+.reduce_space { 
+  margin-top: -4.5%;
   left: -50px;
-  
 }
 
 .top {

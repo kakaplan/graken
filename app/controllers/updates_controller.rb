@@ -14,10 +14,10 @@ class UpdatesController < ApplicationController
 
     begin
       @update.save!
-      flash.notice = "New update saved!"
+      flash[:notice] = "New update saved!"
       redirect_to updates_path
     rescue ActiveRecord::RecordInvalid => e
-      flash.alert = e
+      flash[:alert] = e
       render 'new', :status => unprocessable_entity
     end
   end
@@ -29,6 +29,7 @@ class UpdatesController < ApplicationController
   def update
     @update = Update.find(params[:id])
     if @update.update(update_params)
+      flash[:notice] = "Update edits saved."
       redirect_to updates_path
     else
       render('edit')
@@ -40,6 +41,7 @@ class UpdatesController < ApplicationController
   end
 
   def destroy
+    flash[:notice] = "Update deleted."
     @update = Update.find(params[:id])
     @update.destroy
     redirect_to updates_path

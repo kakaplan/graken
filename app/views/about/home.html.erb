@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+    <%# <link rel="stylesheet" type="text/css" href="application.css" >
+    <link rel="stylesheet" type="text/css" href="global.css" >
+    <link rel="stylesheet" type="text/css" href="flexbox-ultralight.css" > %>
 <html>
 <!-- Home/welcome page for GrakenBike -->
 
@@ -9,9 +12,9 @@
       <img src=<%=image_path('bubbles.gif') %> alt="Floating bubbes" height= 300px/>  
       <img src=<%=image_path('octupus_bicycle.jpg') %> alt="Octopus riding a bike" width=70% />
       
-      <h3 class="text_over_image">You have places to go.
+      <h5 class="text_over_image">You have places to go.
       <br>
-      We have the fun, eco-friendly transportation you need.</h3>
+      We have the fun, eco-friendly transportation you need.</h5>
       <img src=<%=image_path('bubbles.gif') %> alt="Floating bubbes" height= 300px/>  
       
     </div>
@@ -21,7 +24,7 @@
     </h3>
     <br><br>
     
-    <div class="row flexbox horizontal justify-space-between">
+    <div class="flexbox horizontal justify-space-between">
     <a style= "text-decoration:none; color:var(--darkteal-color)" href= <%=station_maps_index_path%> class="column homepage_boxes">
         <div> 
             <br>

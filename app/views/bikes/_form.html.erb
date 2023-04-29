@@ -8,23 +8,6 @@
         <th>Current Station Identifier</th>
         <td><%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %></td>
     </tr>
-
-    <tr>
-        <th>Status</th>
-        <%#TODO: what exactly is status? %>
-        <td><%=f.text_field(:status) %></td>
-    </tr>
-
-    <tr>
-        <th>Battery (as decimal value)</th>
-        <td><%=f.text_field(:battery) %></td>
-    </tr>
-
-    <tr>
-        <th>Mileage</th>
-        <td><%=f.text_field(:mileage) %></td>
-    </tr>
-
     <tr>
         <th>Theme Name</th>
         <td><%=f.text_field(:theme_name) %></td>

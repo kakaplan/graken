@@ -14,7 +14,7 @@ class RentalsController < ApplicationController
     def new
         if params[:rental].present?
             if current_user.current_card.present?
-                @bike = Bike.find_by(id: params[:rental])
+                @bike = Bike.find_by_id(params[:rental])
                 @rental = Rental.new(start_time: Time.now, 
                     user_id: current_user.id,
                     card_id: current_user.current_card.id,
@@ -32,6 +32,12 @@ class RentalsController < ApplicationController
     end
 
     def create
+        # attempt card charge
+        if not current_user.current_card.charge(5)
+            flash[:alert] = "Payment did not go through. Review your card details and try again."
+            redirect_to edit_card_path(current_user.current_card) and return
+        end
+
         #creates the rental
         @rental = Rental.new(params.require(:rental).permit(:start_time,
                                                             :user_id,

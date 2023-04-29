@@ -2,14 +2,16 @@
 <html>
 <!-- Specific styling/display of a station -->
 
-    <div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
-        flexbox vertical stretch">
-        <%= station.identifier %>: <%= station.name %> (<%= station.address %>)
-        --- Number of bikes available: <%= station.docked_bikes.count %> ---
-        Status: <%= station.status %>
-        <%= link_to("Show", station_path(station), class: 'action show') %>
-        <%= link_to("Edit", edit_station_path(station), class: 'action edit') %>  
-        <%= link_to("Delete", delete_station_path(station), class: 'action delete') %>
+    <div class="record-row flexbox vertical stretch">
+        <p style="font-size:100px">&#127754;</p>
+        <strong><%= station.theme_name %></strong>
+            Location: <%= station.name %> <br>
+            Status: <%= station.status %> <br>
+        --- Bikes available: <%= station.docked_bikes.count %> ---
+
+        <%= link_to "<button class='show_rent'>Show</button>".html_safe, station_path(station), class: 'action show' %>
+        <%= link_to "<button class='show_rent'>Edit</button>".html_safe, edit_station_path(station), class: 'action edit' %>
+        <%= link_to "<button class='show_rent'>Delete</button>".html_safe, delete_station_path(station), class: 'action delete' %>
     </div>
 
 </html>

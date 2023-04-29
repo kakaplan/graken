@@ -6,48 +6,49 @@
     <p><%= link_to('Back to Station List', stations_path) %></p>
     <h2>Showing <%=@station.identifier%>: <%=@station.name%></h2>
 
-    <div class="actions">
-      <%= link_to('Edit', edit_station_path(@station)) %>
-      <%= link_to('Delete', delete_station_path(@station)) %>
-    </div>
-
-    <table summary="station detail view">
-      <tr>
-          <th>Address</th>
-          <td><%= @station.address %></td>
-      </tr>
-      <tr>
-          <th>Status</th>
-          <td><%= @station.status%></td>
-      </tr>
-      <tr>
-          <th>Latitude</th>
-          <td><%= @station.latitude %></td>
-      </tr>
-      <tr>
-          <th>Longitude</th>
-          <td><%= @station.longitude %></td>
-      </tr>
-      <tr>
-          <th>Theme Name</th>
-          <td><%= @station.theme_name %></td>
-      </tr>
-      <tr>
-        <th>Created</th>
-        <td><%= @station.created_at %></td>
-      </tr>
-      <tr>
-        <th>Updated</th>
-        <td><%= @station.updated_at %></td>
-      </tr>
-    </table>
-
-    <h3>Bikes docked here</h3>
-    <table summary="Docked bikes">
-    <%# TODO: auto insert station identifier into new bike form%>
-    <p><%=link_to("New bike", new_bike_path)%></p>
-    <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
-    </table>
+  <div class="actions">
   </div>
 
+  <table summary="station detail view">
+    <tr>
+        <th>Address</th>
+        <td><%= @station.address %></td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td><%= @station.status%></td>
+    </tr>
+    <tr>
+        <th>Latitude</th>
+        <td><%= @station.latitude %></td>
+    </tr>
+    <tr>
+        <th>Longitude</th>
+        <td><%= @station.longitude %></td>
+    </tr>
+    <tr>
+        <th>Theme Name</th>
+        <td><%= @station.theme_name %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @station.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @station.updated_at %></td>
+    </tr>
+  </table>
+  <%= link_to "<button class='show_rent'>Edit</button>".html_safe, edit_station_path(@station), class: 'action edit' %>
+    <%= link_to "<button class='show_rent'>Delete</button>".html_safe, delete_station_path(@station), class: 'action delete' %>
+  </div>
+
+  <br><br>
+  <h3>Bikes docked here</h3>
+  <%= link_to "<button class='show_rent'>New Bike</button>".html_safe, new_bike_path %>
+  <div class="station-bike-space">
+    <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
+  </div>
+</div>
 </html>
+

@@ -5,19 +5,19 @@
   <div class="page-section flexbox vertical stretch">
     <div class="section-inner flexbox vertical stretch">
       <div class="section-title">
-        Stations
+        Stations Edit
       </div>
-      <%= link_to("Add new station", new_station_path, class: 'action new') %>  
-      <div class="flexbox vertical stretch">
-          <% if @stations.present? %>
-          We currently have the following stations available:
+      <%= link_to "<button class='show_rent'>Add New Station</button>".html_safe, new_station_path, class: 'action new' %>
+      <% if @stations.present? %>
+        We currently have the following stations available:  
+        <div class="station-bike-space">
           <%= render(partial: "stations/row", collection: @stations, as: :station) %>
-          <% else %>
-          <div class="empty">
-              There are currently no stations or bikes found.
-          </div>
-          <% end %>
-      </div>
+        </div>
+      <% else %>
+        <div class="empty">
+          There are currently no stations or bikes found.
+        </div>
+      <% end %>
     </div>
   </div>
 

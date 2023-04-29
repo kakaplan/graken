@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<div class="bikes show">
+  <p> <%=link_to("Back to station", station_path(Station.find_by(identifier: @bike.current_station_id))) %> </p>
+  <h2>Showing bike <%=@bike.identifier%></h2>
+  <div class="actions">
+  </div>
+
+  <!DOCTYPE html>
 <html>
 <!-- Displays all bikes at a station -->
-
-  <div class="bikes show">
-    <p> <%=link_to("Back to station", station_path(Station.find_by(identifier: @bike.current_station_id))) %> </p>
-    <h2>Showing bike <%=@bike.identifier%></h2>
-    <div class="actions">
-      <%=link_to("Edit", edit_bike_path)%>
-      <%=link_to("Delete", delete_bike_path)%>
-    </div>
-
+  
+  <div class="record-row2 vertical center">
     <table summary = "bike detail view">
       <tr>
           <th>ID</th>
@@ -28,6 +27,9 @@
           <td><%= @bike.theme_name%></td>
       </tr>
     </table>
+    <%= link_to "<button class='show_rent'>Edit</button>".html_safe, edit_bike_path, class: 'action edit' %>
+    <%= link_to "<button class='show_rent'>Delete</button>".html_safe, delete_bike_path, class: 'action delete' %>
+    </div>
   </div>
 
 </html>

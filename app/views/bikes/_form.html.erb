@@ -1,32 +1,24 @@
-<table summary="Bike form fields">
-    <tr>
-        <th> Identifier </th>
-        <td><%= f.text_field(:identifier) %></td>
-    </tr>
+<!DOCTYPE html>
+<html>
+    <div class="payment">
 
-    <tr>
-        <th>Current Station Identifier</th>
-        <td><%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %></td>
-    </tr>
+        <div class="field">
+            <%= f.label "Identifier"%><br />
+            <%= f.text_field(:identifier) %>
+        </div>
 
-    <tr>
-        <th>Status</th>
-        <%#TODO: what exactly is status? %>
-        <td><%=f.text_field(:status) %></td>
-    </tr>
+        <div class="field">
+            <%= f.label "Current Station Identifier"%><br />
+            <%=f.collection_select :current_station_id, Station.all, :identifier, :identifier_with_name %>
+        </div>
 
-    <tr>
-        <th>Battery (as decimal value)</th>
-        <td><%=f.text_field(:battery) %></td>
-    </tr>
+        <div class="field">
+            <%= f.label "Theme Name"%><br />
+            <%=f.text_field(:theme_name) %>
+        </div>
 
-    <tr>
-        <th>Mileage</th>
-        <td><%=f.text_field(:mileage) %></td>
-    </tr>
-
-    <tr>
-        <th>Theme Name</th>
-        <td><%=f.text_field(:theme_name) %></td>
-    </tr>
-</table>
+        <%=f.hidden_field(:status, value: "1") %>
+        <%=f.hidden_field(:battery, value: 1.0) %>
+        <%=f.hidden_field(:mileage, value: 0.0) %>
+    </div>
+</html>

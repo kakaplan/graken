@@ -1,7 +1,9 @@
-<div class="record-row <%= cycle " odd", "even" , name: "row-cycler" %>
-    flexbox vertical stretch">
-    <%=bike.identifier_with_name %>    
-    <%= link_to("show", bike_path(bike)) %>
-    <%= link_to("edit", edit_bike_path(bike)) %>
-    <%=link_to("delete", delete_bike_path(bike))%></td>
+<div class="record-row flexbox vertical stretch" >
+    <p style="font-size:100px">&#128032;</p>
+     <strong><%=bike.identifier_with_name%> Bike </strong>
+
+    <%= link_to "<button class='show_rent'>Show</button>".html_safe, bike_path(bike), class: 'action show' %>
+    <%= link_to "<button class='show_rent'>Edit</button>".html_safe, edit_bike_path(bike), class: 'action edit' %>
+    <%= link_to "<button class='show_rent'>Delete</button>".html_safe, delete_bike_path(bike), class: 'action delete' %>
+
 </div>

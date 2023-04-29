@@ -20,4 +20,9 @@ class Card < ApplicationRecord
 
     has_many :rental_history, class_name: :Rental, primary_key: :id, foreign_key: :card_id 
     belongs_to :user, class_name: :User, primary_key: :id, foreign_key: :user_id
+
+    def charge(amount)
+        # goes through 90% of the time
+        rand() >= 0.1
+    end
 end

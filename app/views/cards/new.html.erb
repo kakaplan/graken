@@ -1,19 +1,25 @@
-<div class= "payment">
-   <h2 class="center">Payment</h2>
-    <% if Card.find_by(user_id: current_user.id).present? %>
-        <div>Please edit or view your card from here:</div>
-        <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
-        <h2><%= link_to "View", card_path(@card)%></h2>
-    <% else %>
+<!DOCTYPE html>
+<html>
+<!-- Page that lets user edit or view card information -->
 
-        <%= form_for(@card) do |f| %>
-            <%= render(partial: 'form', locals: {f: f}) %>
-            <div>
-                <%= f.submit("Save card" , class:"form-buttons") %>
-            </div>
+    <div class= "payment">
+    <h2 class="center">Payment</h2>
+        <% if Card.find_by(user_id: current_user.id).present? %>
+            <div>Please edit or view your card from here:</div>
+            <h2><%= link_to "Edit", edit_card_path(@card)%></h2>
+            <h2><%= link_to "View", card_path(@card)%></h2>
+        <% else %>
+
+            <%= form_for(@card) do |f| %>
+                <%= render(partial: 'form', locals: {f: f}) %>
+                <div>
+                    <%= f.submit("Save card" , class:"form-buttons") %>
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
-</div>
+    </div>
+
+</html>
 
 
                

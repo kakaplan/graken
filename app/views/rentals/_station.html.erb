@@ -1,13 +1,16 @@
-<div class="record-row flexbox vertical">
-<p style="font-size:100px">&#127754;</p>
- <strong><%= station.theme_name %></strong>
-     Location: <%= station.name %> <br>
-     Status: <%= station.status %> <br>
-    --- Bikes available: <%= station.docked_bikes.count %> ---
+<!DOCTYPE html>
+<html>
+<!-- Displays stations on the Rent Now page -->
 
-    <%= link_to "<button class='show_rent'>View Bikes</button>".html_safe,rental_path(station) %>
+    <div class="record-row flexbox vertical">
+    <p style="font-size:100px">&#127754;</p>
+    <strong><%= station.theme_name %></strong>
+        Location: <%= station.name %> <br>
+        Status: <%= station.status %> <br>
+        --- Bikes available: <%= station.docked_bikes.count %> ---
 
- 
-</div>
+        <%= link_to "<button class='show_rent'>View Bikes</button>".html_safe,rental_path(station) %>
 
- 
+    </div>
+
+</html>

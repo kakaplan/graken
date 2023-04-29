@@ -1,9 +1,14 @@
-<div class="stations show">
-  <p><%= link_to('Back to Station List', stations_path) %></p>
-  <h2>Showing <%=@station.identifier%>: <%=@station.name%></h2>
+<!DOCTYPE html>
+<html>
+<!-- Shows a specific station + the bikes available there -->
+
+  <div class="stations show">
+    <p><%= link_to('Back to Station List', stations_path) %></p>
+    <h2>Showing <%=@station.identifier%>: <%=@station.name%></h2>
 
   <div class="actions">
   </div>
+
   <div class="record-row2 vertical center">
     <table summary="station detail view">
       <tr>
@@ -35,6 +40,7 @@
         <td><%= @station.updated_at %></td>
       </tr>
     </table>
+
     <%= link_to "<button class='show_rent'>Edit</button>".html_safe, edit_station_path(@station), class: 'action edit' %>
     <%= link_to "<button class='show_rent'>Delete</button>".html_safe, delete_station_path(@station), class: 'action delete' %>
   </div>
@@ -46,3 +52,5 @@
     <%= render(partial: "bikes/row", collection: @bikes, as: :bike) %>
   </div>
 </div>
+</html>
+

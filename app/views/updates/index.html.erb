@@ -1,27 +1,33 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Updates
-    </div>
-    <% if user_signed_in? and current_user.admin%>
-      <%= link_to("Add update", new_update_path, class: 'action new') %>
-    <% end %>
-    <div class="flexbox vertical stretch">
-        <% for update in @updates do %>
-          <div class = "update-box" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 50%; margin: 5px">
-            <h2><%= update.title %> - <%= update.datetime_created %> </h2>
-            <% if update.text? %>
-              <p><%= update.text %> </p>
-            <% end %>
+<!DOCTYPE html>
+<html>
+<!-- Displays updates on update page -->
 
-            <p> Last modified <%= update.datetime_modified %> </p>
-            
-            <% if user_signed_in? and current_user.admin %>
-              <%= link_to("Edit", edit_update_path(update)) %>
-              <%= link_to("Delete", delete_update_path(update)) %>
-            <% end%>
-          </div>
-        <% end %>
+  <div class="page-section flexbox vertical stretch">
+    <div class="section-inner flexbox vertical stretch">
+      <div class="section-title">
+        Updates
+      </div>
+      <% if user_signed_in? and current_user.admin%>
+        <%= link_to("Add update", new_update_path, class: 'action new') %>
+      <% end %>
+      <div class="flexbox vertical stretch">
+          <% for update in @updates do %>
+            <div class = "update-box" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 50%; margin: 5px">
+              <h2><%= update.title %> - <%= update.datetime_created %> </h2>
+              <% if update.text? %>
+                <p><%= update.text %> </p>
+              <% end %>
+
+              <p> Last modified <%= update.datetime_modified %> </p>
+              
+              <% if user_signed_in? and current_user.admin %>
+                <%= link_to("Edit", edit_update_path(update)) %>
+                <%= link_to("Delete", delete_update_path(update)) %>
+              <% end%>
+            </div>
+          <% end %>
+      </div>
     </div>
-	</div>
-</div>
+  </div>
+
+</html>

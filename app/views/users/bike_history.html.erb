@@ -1,24 +1,30 @@
-<div class="page-section flexbox vertical stretch">
-  <div class="section-inner flexbox vertical stretch">
-    <div class="section-title">
-      Your rental history: 
-    </div>  
-    <div class="flexbox vertical stretch">
-      <div class = "rental-side-bar" >
-        <% Rental.all.each do |rental| %>
-          <%if rental.user_id == current_user.id && rental.status == "closed"%>
-            <button type="button" class="collapsible" ><%=rental.date_created%></button>
-            <div class="content">
-              <p> Start time: <%=rental.start%></p>
-              <p> End time: <%=rental.end%></p>
-              <p> Start station: <%=Station.find_by(identifier: rental.start_station_id).theme_name%></p>
-              <p> End station: <%=Station.find_by(identifier: rental.end_station_id).theme_name%></p>
-              <p> Bike: <%=Bike.find_by(identifier: rental.bike_id).theme_name%></p>
-            </div>
-          <% end %>
-        <%end%>
+<!DOCTYPE html>
+<html>
+<!-- Displays rental history for the user -->
+
+  <div class="page-section flexbox vertical stretch">
+    <div class="section-inner flexbox vertical stretch">
+      <div class="section-title">
+        Your rental history: 
+      </div>  
+      <div class="flexbox vertical stretch">
+        <div class = "rental-side-bar" >
+          <% Rental.all.each do |rental| %>
+            <%if rental.user_id == current_user.id && rental.status == "closed"%>
+              <button type="button" class="collapsible" ><%=rental.date_created%></button>
+              <div class="content">
+                <p> Start time: <%=rental.start%></p>
+                <p> End time: <%=rental.end%></p>
+                <p> Start station: <%=Station.find_by(identifier: rental.start_station_id).theme_name%></p>
+                <p> End station: <%=Station.find_by(identifier: rental.end_station_id).theme_name%></p>
+                <p> Bike: <%=Bike.find_by(identifier: rental.bike_id).theme_name%></p>
+              </div>
+            <% end %>
+          <%end%>
+        </div>
+        <%= link_to "Back", users_path%>
       </div>
-      <%= link_to "Back", users_path%>
     </div>
   </div>
-</div>
+
+</html>

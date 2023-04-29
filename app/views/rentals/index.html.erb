@@ -3,13 +3,13 @@
     <div class="section-title">
     Stations
     </div>
-    <p>We currently have the following stations available:</p>
+    <p>Select the station you are renting from.</p>
     <div class="station-bike-space">
         <% if @stations.present? %>
         <%= render(partial: "rentals/station", collection: @stations, as: :station) %>
         <% else %>
         <div class="empty">
-            We currently no stations or bikes to rent.
+            We currently no stations.
         </div>
         <% end %>
     </div>

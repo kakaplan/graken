@@ -14,8 +14,6 @@
 
         <button class="form-buttons" id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
 
-        
-
         <div id = 'end-rental-form'>
             <p>Pick a drop off station to end the ride.</p>
             <br>
@@ -42,14 +40,7 @@
         </div>
 
         <script>
-            var endRentalForm = document.getElementById("end-rental-form");
-            var endRentalButton = document.getElementById("ready-to-return-button");
-            endRentalForm.style.display = "none";
-            function showEndRentalForm() {
-                endRentalForm.style.display = "inline";
-                endRentalButton.style.display = "none";
-            }
-
+            <%= render(partial: '/rentals/showendrentalform', formats: [:js]) %>
         </script>
     </div>
 

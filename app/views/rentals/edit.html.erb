@@ -7,9 +7,6 @@
         <h2> You are biking with <%=bike.theme_name%>! </h2>
         <br>
         <h3 id="timer"><%=@rental.rental_length_in_seconds%></h3>
-        <script>
-        <%= render(partial: '/rentals/timer', formats: [:js]) %>
-        </script>
         <br>
 
         <button class="form-buttons" id = 'ready-to-return-button' onclick = showEndRentalForm()>Ready to return?</button>
@@ -38,10 +35,6 @@
                 </div>
             <% end %>
         </div>
-
-        <script>
-            <%= render(partial: '/rentals/showendrentalform', formats: [:js]) %>
-        </script>
     </div>
 
     <div id="rental-fish">
@@ -52,6 +45,8 @@
 
 
     <script>
+        <%= render(partial: '/rentals/timer', formats: [:js]) %>
+        <%= render(partial: '/rentals/showendrentalform', formats: [:js]) %>
         <%= render(partial: '/rentals/fishanimation', formats: [:js]) %>
     </script>
 

@@ -159,7 +159,7 @@ li a:hover {
 
 .dropdown {
   display: inline-block;
-  position: relative;
+  position: absolute;
   background-color: var(--darkblue-color);
   color:var(--white-color);
   padding: 14px 16px 14px;
@@ -175,6 +175,7 @@ li a:hover {
   left: 0px; 
   width: 100%;
   border-radius: 0px 0px 15px 15px;
+  z-index: 100;
 }
 .dropdown:hover .dropdown-content {
   display: block;

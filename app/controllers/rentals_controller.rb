@@ -1,18 +1,23 @@
 class RentalsController < ApplicationController
+    #rental can only be performed if the user is signed in 
     before_action :authenticate_user!
 
+    #show all the stations 
     def index
         @stations = Station.all.order(identifier: :asc)
     end
 
+    #shows all the bikes and stations available for renting
     def show
-        #shows all the bikes and stations available for renting
         @station = Station.find(params[:id])
         @bikes = Bike.where(current_station_id: @station.identifier)
     end
 
+    #create a new rental
     def new
+        #check if a bike is selected to rent
         if params[:rental].present?
+            #only allow rental go to through if payment is setup 
             if current_user.current_card.present?
                 @bike = Bike.find_by_id(params[:rental])
                 @rental = Rental.new(start_time: Time.now, 
@@ -61,6 +66,7 @@ class RentalsController < ApplicationController
 
     end
 
+    #edit payment information
     def edit 
         #allows user to return the bike
         if Rental.find_by_id(params[:id]).present?

@@ -1,10 +1,13 @@
 class UpdatesController < ApplicationController
+  #only admin can perform actions 
   before_action :require_admin, except: :index
 
+  #show all updates 
   def index
     @updates = Update.all.order(params[:updated_at]).reverse_order
   end
 
+  #create a new update
   def new
     @update = Update.new
   end
@@ -22,6 +25,7 @@ class UpdatesController < ApplicationController
     end
   end
 
+  #edit an update 
   def edit
     @update = Update.find(params[:id])
   end
@@ -36,6 +40,7 @@ class UpdatesController < ApplicationController
     end
   end
   
+  #delete an update 
   def delete
     @update = Update.find(params[:id])
   end

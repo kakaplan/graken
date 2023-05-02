@@ -1,10 +1,12 @@
 class BikesController < ApplicationController
+  #only admin allowed to perform actions
     before_action :require_admin
 
     def index
       @bikes = Bike.all
     end
-
+    
+    #show bike for each station
     def show
       @bike = Bike.find(params[:id])
     end
@@ -13,13 +15,13 @@ class BikesController < ApplicationController
       @bike = Bike.new
     end
 
+    #create a new bike
     def create
       @bike = Bike.new(bike_params)
 
       begin
         @bike.save!
         flash.notice = "New bike saved!"
-        # TODO: redirect back to show the bike instance we just created
         redirect_to stations_path
       rescue ActiveRecord::RecordInvalid => e
         flash.alert = e
@@ -27,12 +29,11 @@ class BikesController < ApplicationController
       end
     end
 
+    #edit a bike
     def edit
       @bike = Bike.find(params[:id])
     end
 
-    # TODO: use update! instead of update (to ensure errors show)
-    # Also change this for stations
     def update
       @bike = Bike.find(params[:id])
       if @bike.update(bike_params)
@@ -42,6 +43,7 @@ class BikesController < ApplicationController
       end
     end
 
+    #delete a bike 
     def delete
       @bike = Bike.find(params[:id])
     end
@@ -55,6 +57,7 @@ class BikesController < ApplicationController
 
     private
 
+    #bike params
     def bike_params
       params.require(:bike).permit(
         :identifier,

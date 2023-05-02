@@ -1,6 +1,8 @@
 class StationsController < ApplicationController
+  #only admin can perform actions 
   before_action :require_admin
   
+  #show all the staions and its bikes
   def index
     @stations = Station.all.order(identifier: :asc)
   end
@@ -10,6 +12,7 @@ class StationsController < ApplicationController
     @bikes = Bike.where(current_station_id: @station.identifier)
   end
 
+  #creating a new station
   def new
     @station = Station.new
   end
@@ -27,6 +30,7 @@ class StationsController < ApplicationController
     end
   end
 
+  #edit the station
   def edit
     @station = Station.find(params[:id])
   end
@@ -40,6 +44,7 @@ class StationsController < ApplicationController
     end
   end
 
+  #delete a station
   def delete
     @station = Station.find(params[:id])
   end

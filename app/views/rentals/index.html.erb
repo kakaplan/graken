@@ -2,22 +2,23 @@
 <html>
 <!-- Displays all stations available to rent from  -->
 
-    <div class="page-section flexbox vertical">
-    <div class="section-inner flexbox vertical">
-        <div class="section-title">
-        Stations
-        </div>
-        <p>Select the station you are renting from.</p>
-        <div class="station-bike-space">
-            <% if @stations.present? %>
-            <%= render(partial: "rentals/station", collection: @stations, as: :station) %>
-            <% else %>
-            <div class="empty">
-                We currently no stations.
+    <%# <div class="flexbox vertical center"> %>
+        <div class="section-inner flexbox vertical center">
+            <h2>
+            Stations
+            </h2>
+            <div>Select the station you are renting from.</div>
+                <div class="station-bike-space">
+                    <% if @stations.present? %>
+                    <%= render(partial: "rentals/station", collection: @stations, as: :station) %>
+                    <% else %>
+                    <div class="empty">
+                        We currently no stations.
+                    </div>
+                    <% end %>
             </div>
-            <% end %>
+            </div>
         </div>
-        </div>
-    </div>
+    <%# </div> %>
 
 </html>

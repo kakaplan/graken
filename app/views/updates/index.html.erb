@@ -2,11 +2,10 @@
 <html>
 <!-- Displays updates on update page -->
 
-  <div class="page-section flexbox vertical stretch">
     <div class="section-inner flexbox vertical stretch">
-      <div class="section-title">
+      <h2>
         Updates
-      </div>
+      </h2>
       <% if user_signed_in? and current_user.admin%>
         <%= link_to("Add update", new_update_path, class: 'action new') %>
       <% end %>
@@ -28,6 +27,5 @@
           <% end %>
       </div>
     </div>
-  </div>
 
 </html>

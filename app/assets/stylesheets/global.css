@@ -104,6 +104,11 @@ a.menu:hover {
   top: -50px;
 }
 
+.image2 { 
+  position: relative; 
+  width: 100%; /* for IE 6 */
+}
+
 .image_left { 
   position: relative; 
   width: 100%; /* for IE 6 */
@@ -118,20 +123,22 @@ a.menu:hover {
   width: 50%; 
 }
 
+
 .text_over_image_right { 
   position: absolute; 
-  top: 340px; 
+  top: 30px; 
   text-align: center;
   width: 50%; 
-  right: 350px;
+  right: 100px;
   
 }
 
 .text_over_image_left { 
   position: absolute; 
-  top: 190px; 
+  top: 30px; 
   text-align: center;
   width: 50%; 
+  right: -200px;
 }
 
 .reduce_space { 

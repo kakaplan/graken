@@ -15,7 +15,7 @@
             Welcome <%= current_user.firstname %> <%= current_user.lastname %>
         </h4>
 
-        <div class = "user-information" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 102%; margin: 5px; text-align: left">
+        <div class = "user-information update-box" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 102%; margin: 5px; text-align: left">
               <h2>User Information</h2>
               <table summary="user information">
               <tr>
@@ -34,7 +34,7 @@
               </table>
         </div>
 
-        <div class = "user-information" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 102%; margin: 5px; text-align: left">
+        <div class = "user-information update-box" style="border: 1px solid var(--lightgreen-color); padding: 10px; width: 102%; margin: 5px; text-align: left">
           <h2>Card Information</h2>
             <table summary="Payment information">
               <% if Card.find_by(user_id: current_user.id).present? %>
